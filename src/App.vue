@@ -39,5 +39,7 @@ body {
   font-family: sans-serif;
 }
 
-#app {}
+#app {
+  cursor: url('@/assets/img/cursor.png'), auto;
+}
 </style>
