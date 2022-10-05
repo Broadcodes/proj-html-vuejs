@@ -54,7 +54,6 @@ export default {
 .navBar {
   padding: 20px;
   color: rgb(87, 87, 87);
-  cursor: pointer;
 
   i {
     font-size: 0.7rem;
@@ -73,6 +72,7 @@ export default {
       margin: 0 20px;
       list-style-type: none;
       position: relative;
+      cursor: pointer;
 
       // Menu secondario: Aree in grigio scuro
       &>ul {
