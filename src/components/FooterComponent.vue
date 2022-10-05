@@ -1,59 +1,64 @@
 <template>
-  <div class="container">
-    <div class="areaFooterTop">
-      <div class="areaInfoLink">
-        <div class="companyInfo">
-          <div class="logoAndTitle">
-            <img src="@/assets/images/logo-symbol.png" alt="logo">
-            <h2>Avada Pet Supplies</h2>
+  <div>
+    <div class="container">
+      <div class="areaFooterTop">
+        <div class="areaInfoLink">
+          <div class="companyInfo">
+            <div class="logoAndTitle">
+              <img src="@/assets/images/logo-symbol.png" alt="logo">
+              <h2>Avada Pet Supplies</h2>
+            </div>
+            <ul>
+              <li>1234 Avada Avenue Avadaville</li>
+              <li>info@your-company.com</li>
+              <li>Call us: (1) 234 5678</li>
+            </ul>
           </div>
-          <ul>
-            <li>1234 Avada Avenue Avadaville</li>
-            <li>info@your-company.com</li>
-            <li>Call us: (1) 234 5678</li>
-          </ul>
+          <div class="areaLinks">
+            <div class="links">
+              <h2>Shop by brand</h2>
+              <ul>
+                <li><a href="#">Bed</a></li>
+                <li><a href="#">Food</a></li>
+                <li><a href="#">Toys</a></li>
+                <li><a href="#">Transport</a></li>
+              </ul>
+            </div>
+            <div class="links">
+              <h2>Useful links</h2>
+              <ul>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Checkout</a></li>
+                <li><a href="#">Cart</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="areaLinks">
-          <div class="links">
-            <h2>Shop by brand</h2>
-            <ul>
-              <li>Bed</li>
-              <li>Food</li>
-              <li>Toys</li>
-              <li>Transport</li>
-            </ul>
-          </div>
-          <div class="links">
-            <h2>Useful links</h2>
-            <ul>
-              <li>My account</li>
-              <li>Orders</li>
-              <li>Checkout</li>
-              <li>Cart</li>
-            </ul>
-          </div>
+        <div class="subscribe">
+          <h3>Subscribe to our newsletter</h3>
+          <input type="text" name="email" id="email" placeholder="Insert your email ...*">
+          <input type="submit" value="Subscribe">
         </div>
       </div>
-      <div class="subscribe">
-        <h3>Subscribe to our newsletter</h3>
-        <input type="text" name="email" id="email" placeholder="Insert your email ...*">
-        <input type="submit" value="Subscribe">
+      <div class="areaFooterBottom">
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Blog</li>
+          <li>Contact</li>
+          <li>Shop</li>
+        </ul>
+        <ul>
+          <li><i class="fa-brands fa-facebook-f"></i></li>
+          <li><i class="fa-brands fa-twitter"></i></li>
+          <li><i class="fa-brands fa-instagram"></i></li>
+          <li><i class="fa-brands fa-youtube"></i></li>
+        </ul>
       </div>
     </div>
-    <div class="areaFooterBottom">
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Blog</li>
-        <li>Contact</li>
-        <li>Shop</li>
-      </ul>
-      <ul>
-        <li><i class="fa-brands fa-facebook-f"></i></li>
-        <li><i class="fa-brands fa-twitter"></i></li>
-        <li><i class="fa-brands fa-instagram"></i></li>
-        <li><i class="fa-brands fa-youtube"></i></li>
-      </ul>
+    <div class="copyright">
+      <h3>&copy; Copyright 2012 - 2020 | Avada Theme by ThemeFusion | All Rights Reserved | Powered by WordPress</h3>
     </div>
   </div>
 </template>
@@ -67,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   width: 100%;
-  padding: 80px 10%;
+  padding: 80px 10% 60px;
   color: #fff;
   background-color: #1e3120;
   cursor: default;
@@ -105,7 +110,7 @@ export default {
           margin-top: 30px;
           margin-left: 5px;
 
-          li{
+          li {
             font-size: 0.8rem;
             padding: 3px 0;
           }
@@ -116,22 +121,31 @@ export default {
         display: flex;
         flex-grow: 1;
 
-        .links{
+        .links {
           flex-basis: 50%;
 
-          h2{
+          h2 {
             font-size: 1.1rem;
           }
 
           ul {
-          list-style-type: none;
-          margin-top: 20px;
+            list-style-type: none;
+            margin-top: 20px;
 
-          li{
-            font-size: 0.8rem;
-            padding: 10px 0;
+            li {
+              font-size: 0.8rem;
+              padding: 10px 0;
+
+              a {
+                color: #fff;
+                text-decoration: none;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
           }
-        }
         }
       }
     }
@@ -148,14 +162,14 @@ export default {
       background-image: url("@/assets/images/bg-transparent-3.png");
       background-size: 100%;
 
-      input{
+      input {
         height: 45px;
         border-radius: 25px;
         margin: 15px 0;
         text-align: center;
       }
 
-      input:nth-child(3){
+      input:nth-child(3) {
         color: #fff;
         border: none;
         background-color: #3d6f42;
@@ -180,11 +194,30 @@ export default {
     }
 
   }
-
-
-
-
-
-
 }
+
+.copyright {
+    width: 100%;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    position: relative;
+
+    h3 {
+      font-size: 0.7rem;
+      color: #fff;
+      font-weight: 300;
+    }
+
+    span{
+      position: absolute;
+      bottom: 0;
+      right: 10%;
+      width: 15px;
+      height: 10px;
+      background-color: rgb(69, 69, 69);
+    }
+  }
 </style>
