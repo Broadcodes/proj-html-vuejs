@@ -2,13 +2,19 @@
   <div>
     <!-- Sezione relativa alla barra verde sopra alla jumbotron -->
     <div class="bannerTopJumbo">
-
+      <ul>
+        <li><i class="fa-regular fa-map"></i><span>International</span>Shipping Services</li>
+        <li><i class="fa-regular fa-clock"></i>See our<span>store hours</span>and services</li>
+        <li><i class="fa-solid fa-check"></i>We price match to give you the<span>best deals</span></li>
+      </ul>
     </div>
     <!-- Sezione relativa alla jumbotron dell'homepage -->
     <JumboTronArea />
     <!-- Sezione relativa alla barra verde inferiore alla jumbotron -->
     <div class="bannerBottomJumbo">
-
+      <img src="../assets/images/food-transparent-5-400x223.png" alt="croccantini">
+      <p>Get $25 OFF your first purchase of our homemade pet food!</p>
+      <a href="#">Visit the shop</a>
     </div>
     <!-- Sezione relativa alla Categoria dei prodotti -->
     <BrowseByCategory />
@@ -64,5 +70,60 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.bannerTopJumbo,
+.bannerBottomJumbo{
+  background-color: #1e3120;
+  background-image: url('@/assets/images/bg-transparent-3.png');
+  background-size: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.bannerTopJumbo{
+  height: 50px;
+
+  ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    li{
+      width: calc(100% / 3);
+      color: rgb(208, 208, 208);
+      font-size: 0.75rem;
+      text-align: center;
+
+      i,
+      span{
+        padding: 0 5px;
+        color: #fff;
+      }
+
+      span{
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.bannerBottomJumbo{
+  height: 110px;
+  
+  img{
+    height: 70%;
+  }
+  
+  p{
+    color: #fff;
+    margin: 0 25px;
+    font-size: 0.9rem;
+  }
+
+  a{
+    color: rgb(189, 189, 189);
+    font-size: 0.9rem;
+  }
+}
 </style>
