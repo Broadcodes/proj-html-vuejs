@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-   <header>
-    <HeaderComponent />
-   </header>
-   <main>
-    <MainComponent />
-   </main>
-   <footer>
-    <FooterComponent />
-   </footer>
+    <header>
+      <HeaderComponent />
+    </header>
+    <main>
+      <MainComponent />
+    </main>
+    <footer>
+      <FooterComponent />
+    </footer>
   </div>
 </template>
 
@@ -24,12 +24,20 @@ export default {
     HeaderComponent,
     MainComponent,
     FooterComponent
-}
+  }
 }
 </script>
 
 <style lang="scss">
-#app {
-
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+#app {}
 </style>
