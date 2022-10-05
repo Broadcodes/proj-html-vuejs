@@ -59,6 +59,7 @@
     </div>
     <div class="copyright">
       <h3>&copy; Copyright 2012 - 2020 | Avada Theme by ThemeFusion | All Rights Reserved | Powered by WordPress</h3>
+      <span><i class="fa-solid fa-chevron-up"></i></span>
     </div>
   </div>
 </template>
@@ -204,6 +205,7 @@ export default {
     align-items: center;
     background-color: #000;
     position: relative;
+    cursor: default;
 
     h3 {
       font-size: 0.7rem;
@@ -214,10 +216,21 @@ export default {
     span{
       position: absolute;
       bottom: 0;
-      right: 10%;
-      width: 15px;
-      height: 10px;
+      right: 5%;
+      width: 35px;
+      height: 25px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
       background-color: rgb(69, 69, 69);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      i{
+        font-size: 0.7rem;
+        color: #fff;
+      }
     }
   }
 </style>
