@@ -13,8 +13,10 @@
     <!-- Sezione relativa alla barra verde inferiore alla jumbotron -->
     <div class="bannerBottomJumbo">
       <img src="../assets/images/food-transparent-5-400x223.png" alt="croccantini">
-      <p>Get $25 OFF your first purchase of our homemade pet food!</p>
-      <a href="#">Visit the shop</a>
+      <div class="text">
+        <p>Get $25 OFF your first purchase of our homemade pet food!</p>
+        <a href="#">Visit the shop</a>
+      </div>
     </div>
     <!-- Sezione relativa alla Categoria dei prodotti -->
     <BrowseByCategory />
@@ -65,65 +67,79 @@ export default {
     ArticlesBlogArea,
     AreaDogsAndCats,
     NewProductsArrival
-}
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .bannerTopJumbo,
-.bannerBottomJumbo{
+.bannerBottomJumbo {
   background-color: #1e3120;
   background-image: url('@/assets/images/bg-transparent-3.png');
   background-size: 15%;
+}
+
+.bannerTopJumbo {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.bannerTopJumbo{
   height: 50px;
 
-  ul{
+  ul {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     width: 80%;
 
-    li{
+    li {
       width: calc(100% / 3);
       color: rgb(208, 208, 208);
       font-size: 0.75rem;
       text-align: center;
 
       i,
-      span{
+      span {
         padding: 0 5px;
         color: #fff;
       }
 
-      span{
+      span {
         font-weight: 600;
       }
     }
   }
 }
 
-.bannerBottomJumbo{
+.bannerBottomJumbo {
   height: 110px;
-  
-  img{
-    height: 70%;
+  position: relative;
+  display: flex;
+
+  img {
+    height: 85%;
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
   }
-  
-  p{
+
+  .text{
+    position: absolute;
+    bottom: 0px;
+    left: 41%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    p {
     color: #fff;
     margin: 0 25px;
     font-size: 0.9rem;
   }
 
-  a{
+  a {
     color: rgb(189, 189, 189);
     font-size: 0.9rem;
+  }
   }
 }
 </style>
