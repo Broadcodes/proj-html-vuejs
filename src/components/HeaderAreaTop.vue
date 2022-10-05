@@ -1,8 +1,7 @@
 <template>
     <div class="container">
         <div class="logo">
-            <img src="@/assets/img/logo.png" alt="logo">
-            <p>Avada Pet Supplies</p>
+            <img src="@/assets/images/dark-pet-logo.png" alt="logo">
         </div>
         <div class="areaSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -33,15 +32,12 @@ export default {
 
     .logo {
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items: center;
 
         img{
+            width: 80%;
             margin-right: 10px;
-        }
-        
-        p{
-            font-weight: 600;
         }
     }
 

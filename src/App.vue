@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent />
+      <HeaderComponent /> <!-- Passare i dati per la navbar -->
     </header>
     <main>
       <MainComponent />
