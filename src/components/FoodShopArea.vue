@@ -4,19 +4,19 @@
       <div class="card">
         <h2>Kibble</h2>
         <h4>Dry dog food</h4>
-        <img src="../assets/images/food-transparent-18-400x420.png" alt="">
+        <img src="../assets/images/food-transparent-18-400x420.png" alt="Kibble Food">
         <input type="button" value="Shop dry food">
       </div>
       <div class="card">
         <h2>Moist</h2>
         <h4>Canned dog food</h4>
-        <img src="../assets/images/food-transparent-17-400x420.png" alt="">
+        <img src="../assets/images/food-transparent-17-400x420.png" alt="Moist Food">
         <input type="button" value="Shop moist food">
       </div>
       <div class="card">
         <h2>Frozen</h2>
         <h4>Freeze-Dried dog food</h4>
-        <img src="../assets/images/food-transparent-16-400x420.png" alt="">
+        <img src="../assets/images/food-transparent-16-400x420.png" alt="Frozen Food">
         <input type="button" value="Shop frozen food">
       </div>
     </div>
