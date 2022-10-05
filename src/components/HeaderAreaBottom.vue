@@ -52,7 +52,6 @@ export default {
 
 <style lang="scss" scoped>
 .navBar {
-  padding: 20px;
   color: rgb(87, 87, 87);
 
   i {
@@ -69,10 +68,17 @@ export default {
     justify-content: center;
 
     &>li {
+      display: flex;
+      align-items: center;
       margin: 0 20px;
       list-style-type: none;
       position: relative;
       cursor: pointer;
+      height: 50px;
+
+      i {
+        padding: 5px
+      }
 
       // Menu secondario: Aree in grigio scuro
       &>ul {

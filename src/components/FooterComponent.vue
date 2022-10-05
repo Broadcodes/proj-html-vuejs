@@ -5,8 +5,7 @@
         <div class="areaInfoLink">
           <div class="companyInfo">
             <div class="logoAndTitle">
-              <img src="@/assets/images/logo-symbol.png" alt="logo">
-              <h2>Avada Pet Supplies</h2>
+              <img src="@/assets/images/mobile-light-pet-logo-2x-200x52.png" alt="logo">
             </div>
             <ul>
               <li>1234 Avada Avenue Avadaville</li>
@@ -96,13 +95,7 @@ export default {
           align-items: center;
 
           img {
-            filter: invert(100%);
             margin-right: 10px;
-            width: 45px;
-          }
-
-          h2 {
-            font-size: 1.3rem;
           }
         }
 
