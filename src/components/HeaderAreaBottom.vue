@@ -77,6 +77,7 @@ export default {
       height: 50px;
 
       a{
+        padding: 5px 0;
         text-decoration: none;
         color: #000;
       }

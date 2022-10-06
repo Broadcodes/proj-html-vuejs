@@ -42,5 +42,9 @@ body {
 #app {
   cursor: url('@/assets/img/cursor.png'), auto;
   scroll-behavior: smooth;
+
+  main{
+    padding-top: 112px;
+  }
 }
 </style>
