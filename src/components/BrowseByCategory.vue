@@ -6,21 +6,9 @@
         consequat nulla rhoncus dictum. Viverra.</p>
     </div>
     <div class="contenitorCards">
-      <div class="card">
-        <img src="../assets/images/product-9-500x500.jpg" alt="Bad">
-        <p>Bad (1)</p>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-3-500x500.jpg" alt="Food">
-        <p>Food (6)</p>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-2-500x500.jpg" alt="Toys">
-        <p>Toys (6)</p>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-4-500x500.jpg" alt="Transport">
-        <p>Transport (6)</p>
+      <div class="card" v-for="item in getData()" :key="item.id">
+        <img :src="item.img" :alt="item.name">
+        <p>{{item.category}} ({{item.quantity}})</p>
       </div>
     </div>
   </div>
@@ -28,7 +16,37 @@
 
 <script>
 export default {
-  name: 'BrowseByCategory'
+  name: 'BrowseByCategory',
+  data() {
+    return {
+      arrData: [],
+    }
+  },
+  props: {
+    data: Array
+  },
+  methods: {
+    getData() {
+      let arr = [];
+
+      this.data.forEach(element => {
+        if (element.id === 9) {
+          arr.push(element)
+        }
+        if (element.id === 5) {
+          arr.push(element)
+        }
+        if (element.id === 4) {
+          arr.push(element)
+        }
+        if (element.id === 6) {
+          arr.push(element)
+        }
+      });
+
+      return arr;
+    }
+  }
 }
 </script>
 
@@ -69,7 +87,7 @@ export default {
         height: 100%;
       }
 
-      p{
+      p {
         margin: 20px 0;
       }
     }

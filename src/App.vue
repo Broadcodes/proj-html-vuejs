@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" /> <!-- Passare i dati per la navbar -->
+      <HeaderComponent :dataShop="shop" />
     </header>
     <main>
-      <MainComponent />
+      <MainComponent :dataShop="shop" />
     </main>
     <footer>
       <FooterComponent />
