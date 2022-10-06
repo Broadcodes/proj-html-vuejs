@@ -10,21 +10,53 @@
     <div class="cards">
       <div class="card">
         <img src="../assets/images/product-21-400x400.jpg" alt="Transport cage">
+        <div class="addToCart">
+          <i class="fa-regular fa-square"></i>
+          <h3>ADD TO CART?</h3>
+        </div>
+        <div class="addedToCart">
+          <i class="fa-regular fa-square-check"></i>
+          <h3>VIEW CART</h3>
+        </div>
         <h3>Transport cage</h3>
         <h4>$25.00</h4>
       </div>
       <div class="card">
         <img src="../assets/images/product-20-400x400.jpg" alt="Dog leash">
+        <div class="addToCart">
+          <i class="fa-regular fa-square"></i>
+          <h3>ADD TO CART?</h3>
+        </div>
+        <div class="addedToCart">
+          <i class="fa-regular fa-square-check"></i>
+          <h3>VIEW CART</h3>
+        </div>
         <h3>Dog leash</h3>
         <h4>$25.00</h4>
       </div>
       <div class="card">
         <img src="../assets/images/product-16-400x400.jpg" alt="Animal transport cage">
+        <div class="addToCart">
+          <i class="fa-regular fa-square"></i>
+          <h3>ADD TO CART?</h3>
+        </div>
+        <div class="addedToCart">
+          <i class="fa-regular fa-square-check"></i>
+          <h3>VIEW CART</h3>
+        </div>
         <h3>Animal transport cage</h3>
         <h4><span>$35.00</span>$25.00</h4>
       </div>
       <div class="card">
         <img src="../assets/images/product-11-400x400.jpg" alt="Colorful cat leash">
+        <div class="addToCart">
+          <i class="fa-regular fa-square"></i>
+          <h3>ADD TO CART?</h3>
+        </div>
+        <div class="addedToCart">
+          <i class="fa-regular fa-square-check"></i>
+          <h3>VIEW CART</h3>
+        </div>
         <h3>Colorful cat leash</h3>
         <h4>$12.00</h4>
       </div>
@@ -64,31 +96,76 @@ export default {
       border: none;
       color: #fff;
       background-color: #3d6f42;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #529258;
+        color: #fff;
+      }
     }
   }
 
-  .cards{
+  .cards {
     display: flex;
     justify-content: space-between;
 
-    .card{
+    .card {
       width: calc(100% / 4 - 20px);
       text-align: center;
+      position: relative;
 
-      img{
+      .addToCart,
+      .addedToCart {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+
+        h3 {
+          color: #fff;
+          transform: translateY(-25px);
+        }
+
+        i {
+          color: #fff;
+          padding: 20px;
+          font-size: 1.8rem;
+          background-color: rgba(0, 0, 0, 0.75);
+          border-radius: 50px;
+          transform: translateY(-25px);
+        }
+      }
+
+      &:hover .addToCart {
+        display: flex;
+      }
+
+      // .addedToCart{
+      //   display: flex;
+      // }
+
+      &:hover img {
+        filter: sepia(10%) brightness(85%);
+      }
+
+      img {
         width: 100%;
       }
 
-      h3{
+      h3 {
         font-size: 0.9rem;
         padding: 10px;
       }
 
-      h4{
+      h4 {
         font-size: 0.85rem;
         color: rgb(153, 153, 153);
 
-        span{
+        span {
           font-size: 0.7rem;
           padding: 10px;
           text-decoration: line-through #000;

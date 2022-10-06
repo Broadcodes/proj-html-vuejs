@@ -168,6 +168,11 @@ export default {
         border: none;
         background-color: #3d6f42;
         cursor: pointer;
+
+        &:hover {
+          background-color: #529258;
+          color: #fff;
+        }
       }
     }
   }
@@ -191,39 +196,39 @@ export default {
 }
 
 .copyright {
-    width: 100%;
-    height: 55px;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  position: relative;
+  cursor: default;
+
+  h3 {
+    font-size: 0.7rem;
+    color: #fff;
+    font-weight: 300;
+  }
+
+  span {
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 35px;
+    height: 25px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgb(69, 69, 69);
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000;
-    position: relative;
-    cursor: default;
+    cursor: pointer;
 
-    h3 {
+    i {
       font-size: 0.7rem;
       color: #fff;
-      font-weight: 300;
-    }
-
-    span{
-      position: absolute;
-      bottom: 0;
-      right: 5%;
-      width: 35px;
-      height: 25px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      background-color: rgb(69, 69, 69);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-
-      i{
-        font-size: 0.7rem;
-        color: #fff;
-      }
     }
   }
+}
 </style>

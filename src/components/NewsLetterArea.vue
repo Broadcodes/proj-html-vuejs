@@ -68,6 +68,12 @@ export default {
           color: #fff;
           padding-left: 30px;
           padding-right: 30px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #529258;
+            color: #fff;
+          }
         }
       }
 

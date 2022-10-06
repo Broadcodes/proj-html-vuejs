@@ -13,51 +13,57 @@
 
 <script>
 export default {
- name: 'NewArrivalsWeekly'
+  name: 'NewArrivalsWeekly'
 }
 </script>
 
 <style lang="scss" scoped>
-  .contenitor{
-    padding: 50px 10%;
+.contenitor {
+  padding: 50px 10%;
 
-    .areaElement{
-      position: relative;
+  .areaElement {
+    position: relative;
 
-      img{
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-        filter: brightness(75%);
+    img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      filter: brightness(75%);
+    }
+
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+
+      h4 {
+        font-size: 0.7rem;
+        letter-spacing: 0.2rem;
+        word-spacing: 0.3rem;
       }
 
-      .text{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
-        text-align: center;
+      h2 {
+        font-size: 3rem;
+        margin: 30px 0;
+      }
 
-        h4{
-          font-size: 0.7rem;
-          letter-spacing: 0.2rem;
-          word-spacing: 0.3rem;
-        }
+      input {
+        padding: 10px 20px;
+        color: #000;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
 
-        h2{
-          font-size: 3rem;
-          margin: 30px 0;
-        }
-
-        input{
-          padding: 10px 20px;
-          color: #000;
-          border-radius: 25px;
-          border: none;
+        &:hover {
+          background-color: #3d6f42;
+          color: #fff;
         }
       }
     }
-
   }
+
+}
 </style>

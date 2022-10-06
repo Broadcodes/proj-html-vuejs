@@ -63,6 +63,12 @@ export default {
         padding: 10px 20px;
         border: none;
         border-radius: 25px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #3d6f42;
+          color: #fff;
+        }
       }
     }
   }

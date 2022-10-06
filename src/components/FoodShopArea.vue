@@ -49,28 +49,40 @@ export default {
       justify-content: center;
       align-items: center;
       padding: 60px 0px;
+      transition: transform .5s;
 
-      h2{
+      &:hover{
+        transform: scale(1.05);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      h2 {
         font-size: 1.8rem;
       }
 
-      h4{
+      h4 {
         font-size: 0.85rem;
         color: #3d6f42;
         padding: 20px 0;
       }
 
-      img{
+      img {
         width: 60%;
         padding: 10px 0;
       }
 
-      input{
+      input {
         color: #fff;
         background-color: #3d6f42;
         border-radius: 25px;
         padding: 10px 20px;
         border: none;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #529258;
+          color: #fff;
+        }
       }
     }
   }

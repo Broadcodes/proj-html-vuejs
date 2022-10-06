@@ -17,6 +17,7 @@
       </div>
       <div class="card">
         <img src="../assets/images/product-3-500x500.jpg" alt="Toys">
+        <span id="sale">Sale!</span>
         <h3>Dog bone</h3>
         <h4><span>$29.00</span>$18.00</h4>
       </div>
@@ -75,11 +76,24 @@ export default {
     margin-bottom: 40px;
 
     .card {
+      position: relative;
       margin: 18px 5px;
       width: calc(100% / 3 - 10px);
 
       img {
         width: 100%;
+      }
+
+      #sale{
+        position: absolute;
+        top: 15px;
+        left: 20px;
+        background-color: #529258;
+        color: #fff;
+        padding: 8px 8px;
+        border-radius: 50%;
+        font-size: 0.9rem;
+        
       }
 
       h3{

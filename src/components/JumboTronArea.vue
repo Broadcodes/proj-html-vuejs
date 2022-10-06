@@ -52,6 +52,12 @@ export default {
             padding: 10px 25px;
             border-radius: 25px;
             border: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #3d6f42;
+                color: #fff;
+            }
         }
     }
 
