@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="browseByCategory">
     <div class="text">
       <h2>Browse by category</h2>
       <p>Angue parus et, tincidunt condimentum mauris. At nibh retrum mi in. Nisi, vitae interdum eleifend dui,

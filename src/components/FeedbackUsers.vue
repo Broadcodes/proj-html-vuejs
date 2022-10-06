@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="reviews">
     <h2>Users testimonials</h2>
     <div class="cards">
       <div class="card">

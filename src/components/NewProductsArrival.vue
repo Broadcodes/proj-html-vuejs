@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="newProductsArrival">
     <div class="text">
       <h2>New products arrival</h2>
       <p>Latest products</p>

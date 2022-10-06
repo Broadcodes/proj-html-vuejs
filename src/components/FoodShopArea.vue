@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" id="kindsOfFood">
     <div class="cards">
       <div class="card">
         <h2>Kibble</h2>

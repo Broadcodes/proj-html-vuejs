@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" id="topHeader">
         <div class="logo">
             <img src="@/assets/images/dark-pet-logo.png" alt="logo">
         </div>

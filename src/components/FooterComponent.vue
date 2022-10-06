@@ -58,7 +58,7 @@
     </div>
     <div class="copyright">
       <h3>&copy; Copyright 2012 - 2020 | Avada Theme by ThemeFusion | All Rights Reserved | Powered by WordPress</h3>
-      <span><i class="fa-solid fa-chevron-up"></i></span>
+      <a href="../components/HeaderAreaTop.vue/#topHeader"><span><i class="fa-solid fa-chevron-up"></i></span></a>
     </div>
   </div>
 </template>

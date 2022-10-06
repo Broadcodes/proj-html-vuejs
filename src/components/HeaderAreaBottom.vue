@@ -3,10 +3,10 @@
     <ul>
       <li>Home <i class="fa-solid fa-chevron-down"></i>
         <ul id="listHome">
-          <li>Browse by category</li>
-          <li>Kinds of food</li>
-          <li>Reviews</li>
-          <li>New products arrival</li>
+          <li><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by category</a></li>
+          <li><a href="../components/FoodShopArea.vue/#kindsOfFood">Kinds of food</a></li>
+          <li><a href="../components/FeedbackUsers.vue/#reviews">Reviews</a></li>
+          <li><a href="../components/NewProductsArrival.vue/#newProductsArrival">New products arrival</a></li>
         </ul>
       </li>
       <li>Shop <i class="fa-solid fa-chevron-down"></i>
@@ -76,20 +76,26 @@ export default {
       cursor: pointer;
       height: 50px;
 
+      a{
+        text-decoration: none;
+        color: #000;
+      }
+
       i {
         padding: 5px
       }
 
       // Menu secondario: Aree in grigio scuro
       &>ul {
-        margin-top: 10px;
         border-radius: 10px;
         background-color: rgb(237, 237, 237);
         padding: 5px;
         list-style-type: none;
         position: absolute;
+        top: 50px;
+        z-index: 100;
         left: 0px;
-        width: 15vw;
+        width: 25vh;
         display: none;
 
         li {
@@ -119,17 +125,25 @@ export default {
         }
       }
 
+      #listShop li{
+        background-color: rgb(237, 237, 237);
+
+        ul>li:hover{
+          background-color: rgb(246, 246, 246);
+        }
+      }
+
       #listShop li i {
         margin: 0 10px;
       }
 
-      // #listHome,
-      // #listShop,
-      // #listBrand,
-      // #categoryDogs,
-      // #categoryCats {
-      //   display: block;
-      // }
+      #listHome,
+      #listShop,
+      #listBrand,
+      #categoryDogs,
+      #categoryCats {
+        display: block;
+      }
 
     }
   }
