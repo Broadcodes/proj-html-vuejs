@@ -27,7 +27,7 @@ export default {
   
 <style lang="scss" scoped>
 .container {
-  margin: 70px 0;
+  margin: 70px 0 0;
   display: flex;
   height: 400px;
 

@@ -36,7 +36,24 @@
     <AreaDogsAndCats />
     <!-- Sezione relativa alla barra verde in cui sono presenti le icone sulla spedizione, store e i pagamenti -->
     <div class="bannerPay">
-
+      <div class="cards">
+        <div class="card">
+          <i class="fa-solid fa-truck"></i>
+          <h4>Free worldwide deliveries</h4>
+        </div>
+        <div class="card">
+          <i class="fa-regular fa-map"></i>
+          <h4>Find stores near you</h4>
+        </div>
+        <div class="card">
+          <i class="fa-solid fa-dollar-sign"></i>
+          <h4>Best prices guarranteed</h4>
+        </div>
+        <div class="card">
+          <i class="fa-regular fa-credit-card"></i>
+          <h4>All credit card accepted</h4>
+        </div>
+      </div>
     </div>
     <!-- Sezione relativa ai nuovi arrivi per cani e gatti-->
     <NewProductsArrival />
@@ -73,7 +90,8 @@ export default {
 
 <style lang="scss" scoped>
 .bannerTopJumbo,
-.bannerBottomJumbo {
+.bannerBottomJumbo,
+.bannerPay {
   background-color: #1e3120;
   background-image: url('@/assets/images/bg-transparent-3.png');
   background-size: 15%;
@@ -122,7 +140,7 @@ export default {
     left: 30%;
   }
 
-  .text{
+  .text {
     position: absolute;
     bottom: 0px;
     left: 41%;
@@ -131,15 +149,45 @@ export default {
     align-items: center;
 
     p {
-    color: #fff;
-    margin: 0 25px;
-    font-size: 0.9rem;
-  }
+      color: #fff;
+      margin: 0 25px;
+      font-size: 0.9rem;
+    }
 
-  a {
-    color: rgb(189, 189, 189);
-    font-size: 0.9rem;
+    a {
+      color: rgb(189, 189, 189);
+      font-size: 0.9rem;
+    }
   }
+}
+
+.bannerPay {
+  .cards {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px;
+    width: 100%;
+
+    .card {
+      width: calc(100vh / 4 - 20px);
+      height: calc(100vh / 4 - 20px);
+      margin: 0 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+
+      i {
+        font-size: 2.5rem;
+      }
+
+      h4{
+        font-size: 0.7rem;
+        padding: 20px 0;
+        color: rgb(203, 203, 203);
+      }
+    }
   }
 }
 </style>
