@@ -76,7 +76,7 @@ export default {
 
     .card {
       margin: 18px 5px;
-      width: calc(100vh / 3 - 10px);
+      width: calc(100% / 3 - 10px);
 
       img {
         width: 100%;
