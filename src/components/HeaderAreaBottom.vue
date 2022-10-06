@@ -1,6 +1,5 @@
 <template>
   <div class="navBar">
-
     <ul>
       <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')">Home <i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listHome : listHome}">

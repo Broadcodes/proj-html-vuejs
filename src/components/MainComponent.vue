@@ -19,13 +19,13 @@
       </div>
     </div>
     <!-- Sezione relativa alla Categoria dei prodotti -->
-    <BrowseByCategory />
+    <BrowseByCategory :data="dataShop"/>
     <!-- Sezione relativa alla vendita alimentare dell'animale -->
     <FoodShopArea />
     <!-- Sezione relativa ai nuovi arrivi settimanali -->
     <NewArrivalsWeekly />
     <!-- Sezione relativa ai prodotti in vendita -->
-    <ProductsForSale />
+    <ProductsForSale :data="dataShop" />
     <!-- Sezione relativa alle testimonianze -->
     <FeedbackUsers />
     <!-- Sezione relativa alle newsletter -->
@@ -73,6 +73,9 @@ import AreaDogsAndCats from './AreaDogsAndCats.vue';
 import NewProductsArrival from './NewProductsArrival.vue';
 export default {
   name: "MainComponent",
+  props:{
+    dataShop: Array
+  },
   components: {
     JumboTronArea,
     BrowseByCategory,

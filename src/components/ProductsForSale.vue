@@ -8,8 +8,8 @@
       <input type="button" value="View all products">
     </div>
     <div class="cards">
-      <div class="card">
-        <img src="../assets/images/product-21-400x400.jpg" alt="Transport cage">
+      <div class="card" v-for="item in getData()" :key="item.id">
+        <img :src="item.img" :alt="item.name">
         <div class="addToCart">
           <i class="fa-regular fa-square"></i>
           <h3>ADD TO CART?</h3>
@@ -18,47 +18,8 @@
           <i class="fa-regular fa-square-check"></i>
           <h3>VIEW CART</h3>
         </div>
-        <h3>Transport cage</h3>
-        <h4>$25.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-20-400x400.jpg" alt="Dog leash">
-        <div class="addToCart">
-          <i class="fa-regular fa-square"></i>
-          <h3>ADD TO CART?</h3>
-        </div>
-        <div class="addedToCart">
-          <i class="fa-regular fa-square-check"></i>
-          <h3>VIEW CART</h3>
-        </div>
-        <h3>Dog leash</h3>
-        <h4>$25.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-16-400x400.jpg" alt="Animal transport cage">
-        <div class="addToCart">
-          <i class="fa-regular fa-square"></i>
-          <h3>ADD TO CART?</h3>
-        </div>
-        <div class="addedToCart">
-          <i class="fa-regular fa-square-check"></i>
-          <h3>VIEW CART</h3>
-        </div>
-        <h3>Animal transport cage</h3>
-        <h4><span>$35.00</span>$25.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-11-400x400.jpg" alt="Colorful cat leash">
-        <div class="addToCart">
-          <i class="fa-regular fa-square"></i>
-          <h3>ADD TO CART?</h3>
-        </div>
-        <div class="addedToCart">
-          <i class="fa-regular fa-square-check"></i>
-          <h3>VIEW CART</h3>
-        </div>
-        <h3>Colorful cat leash</h3>
-        <h4>$12.00</h4>
+        <h3>{{item.name}}</h3>
+        <h4>{{item.price}}</h4>
       </div>
     </div>
   </div>
@@ -66,7 +27,32 @@
 
 <script>
 export default {
-  name: 'ProductsForSale'
+  name: 'ProductsForSale',
+  props:{
+    data: Array
+  },
+  methods: {
+    getData() {
+      let arr = [];
+
+      this.data.forEach(element => {
+        if (element.id === 14) {
+          arr.push(element)
+        }
+        if (element.id === 13) {
+          arr.push(element)
+        }
+        if (element.id === 12) {
+          arr.push(element)
+        }
+        if (element.id === 11) {
+          arr.push(element)
+        }
+      });
+
+      return arr;
+    }
+  }
 }
 </script>
 

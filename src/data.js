@@ -35,7 +35,7 @@ export const shop = [
         img: '@/assers/images/products/product-2-500x500.jpg',
         animal: 'Cats',
         brand: 'Felix',
-        quantity: '3',
+        quantity: '6',
         category: 'Toys',
         price: '$29.00'
     },
@@ -45,8 +45,8 @@ export const shop = [
         img: '@/assers/images/products/product-3-500x500.jpg',
         animal: 'Dogs',
         brand: 'Animonda',
-        quantity: '7',
-        category: 'Toys',
+        quantity: '6',
+        category: 'Food',
         price: '$18.00'
     },
     {
@@ -55,7 +55,7 @@ export const shop = [
         img: '@/assers/images/products/product-4-500x500.jpg',
         animal: 'Cats',
         brand: 'Gourmet ',
-        quantity: '12',
+        quantity: '6',
         category: 'Transport',
         price: '$29.00'
     },
@@ -82,10 +82,10 @@ export const shop = [
     {
         id: 9,
         name: 'Colored pet bed',
-        img: '@/assers/images/products/product-9-500x500.jpg',
+        img: '.@/assers/images/products/product-9-500x500.jpg',
         animal: 'Dogs',
         brand: 'Friskies',
-        quantity: '8',
+        quantity: '1',
         category: 'Bad',
         price: '$23.00'
     },
@@ -139,4 +139,25 @@ export const shop = [
         category: 'Transport',
         price: '$25.00'
     }
+]
+
+export const feedback = [
+    {
+        name: 'Lisa Smith',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum perferendis, minima iste.',
+        img: '',
+        company: 'ThemeFusion'
+    },
+    {
+        name: 'Melissa Green',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum perferendis, minima iste.',
+        img: '',
+        company: 'ThemeFusion'
+    },
+    {
+        name: 'Sam Lewis',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum perferendis, minima iste.',
+        img: '',
+        company: 'ThemeFusion'
+    },
 ]
