@@ -1,30 +1,25 @@
 <template>
   <div class="navBar">
+
     <ul>
-      <li>Home <i class="fa-solid fa-chevron-down"></i>
-        <ul id="listHome">
+      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')">Home <i class="fa-solid fa-chevron-down"></i>
+        <ul :class="{listHome : listHome}">
           <li><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by category</a></li>
           <li><a href="../components/FoodShopArea.vue/#kindsOfFood">Kinds of food</a></li>
           <li><a href="../components/FeedbackUsers.vue/#reviews">Reviews</a></li>
           <li><a href="../components/NewProductsArrival.vue/#newProductsArrival">New products arrival</a></li>
         </ul>
       </li>
-      <li>Shop <i class="fa-solid fa-chevron-down"></i>
-        <ul id="listShop">
-          <li><i class="fa-solid fa-bone"></i>Dogs<i class="fa-solid fa-chevron-down"></i>
-            <ul id="categoryDogs">
-              <li>Bed</li>
-              <li>Food</li>
-              <li>Toys</li>
-              <li>Transport</li>
+      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')">Shop <i class="fa-solid fa-chevron-down"></i>
+        <ul :class="{listShop : listShop}">
+          <li @mouseenter="getShowMenu('dogs')" @mouseleave="getShowMenu('dogs')"><i class="fa-solid fa-bone"></i>Dogs<i class="fa-solid fa-chevron-down"></i>
+            <ul :class="{categoryDogs : categoryDogs}">
+              <li v-for="item in this.getCategory()" :key="item.id">{{item}}</li>
             </ul>
           </li>
-          <li><i class="fa-solid fa-paw"></i>Cats<i class="fa-solid fa-chevron-down"></i>
-            <ul id="categoryCats">
-              <li>Bed</li>
-              <li>Food</li>
-              <li>Toys</li>
-              <li>Transport</li>
+          <li @mouseenter="getShowMenu('cats')" @mouseleave="getShowMenu('cats')"><i class="fa-solid fa-paw"></i>Cats<i class="fa-solid fa-chevron-down"></i>
+            <ul :class="{categoryCats : categoryCats}">
+              <li v-for="item in this.getCategory()" :key="item.id">{{item}}</li>
             </ul>
           </li>
         </ul>
@@ -32,12 +27,9 @@
       <li>About</li>
       <li>Blog</li>
       <li>Contact</li>
-      <li>Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
-        <ul id="listBrand">
-          <li>Bed</li>
-          <li>Food</li>
-          <li>Toys</li>
-          <li>Transport</li>
+      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
+        <ul :class="{listBrand : listBrand}">
+          <li v-for="item in this.getBrand()" :key="item.id">{{item}}</li>
         </ul>
       </li>
     </ul>
@@ -46,7 +38,86 @@
 
 <script>
 export default {
-  name: 'HeaderAreaBottom'
+  name: 'HeaderAreaBottom',
+  data(){
+    return{
+      listHome: false,
+      listShop: false,
+      categoryDogs: false,
+      categoryCats: false,
+      listBrand: false,
+    }
+  },
+  props: {
+    menu: Array,
+  },
+  methods: {
+    getCategory() {
+      let arr = [];
+
+      this.menu.forEach(element => {
+        arr.push(element.category)
+      });
+
+      return arr.filter((x, i) =>
+        arr.indexOf(x) === i
+      );
+    },
+    getBrand() {
+      let arr = [];
+
+      this.menu.forEach(element => {
+        arr.push(element.brand)
+      });
+
+      return arr.filter((x, i) =>
+        arr.indexOf(x) === i
+      );
+    },
+    getShowMenu(value){
+
+      switch (value) {
+        case 'home':
+          if(this.listHome === false){
+            this.listHome = true;
+          } else {
+            this.listHome = false;
+          }
+          break;
+        case 'shop':
+          if(this.listShop === false){
+            this.listShop = true;
+          } else {
+            this.listShop = false;
+          }
+          break;
+        case 'dogs':
+          if(this.categoryDogs === false){
+            this.categoryDogs = true;
+          } else {
+            this.categoryDogs = false;
+          }
+          break;
+        case 'cats':
+          if(this.categoryCats === false){
+            this.categoryCats = true;
+          } else {
+            this.categoryCats = false;
+          }
+          break;
+        case 'brand':
+          if(this.listBrand === false){
+            this.listBrand = true;
+          } else {
+            this.listBrand = false;
+          }
+          break;
+      
+        default:
+          break;
+      }
+    }
+  }
 }
 </script>
 
@@ -76,7 +147,7 @@ export default {
       cursor: pointer;
       height: 50px;
 
-      a{
+      a {
         padding: 5px 0;
         text-decoration: none;
         color: #000;
@@ -126,23 +197,25 @@ export default {
         }
       }
 
-      #listShop li{
-        background-color: rgb(237, 237, 237);
+      .listShop li {
+        &:hover{
+          background-color: rgb(237, 237, 237);
+        }
 
-        ul>li:hover{
+        ul>li:hover {
           background-color: rgb(246, 246, 246);
         }
       }
 
-      #listShop li i {
+      .listShop li i {
         margin: 0 10px;
       }
 
-      #listHome,
-      #listShop,
-      #listBrand,
-      #categoryDogs,
-      #categoryCats {
+      .listHome,
+      .listShop,
+      .categoryDogs,
+      .categoryCats,
+      .listBrand{
         display: block;
       }
 

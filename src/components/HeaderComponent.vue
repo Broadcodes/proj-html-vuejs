@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <HeaderAreaTop />
-    <HeaderAreaBottom />
+    <HeaderAreaBottom :menu="dataShop"/>
   </div>
 </template>
 
@@ -10,7 +10,13 @@ import HeaderAreaTop from './HeaderAreaTop.vue';
 import HeaderAreaBottom from './HeaderAreaBottom.vue';
 export default {
   name: "HeaderComponent",
-  components: { HeaderAreaTop, HeaderAreaBottom }
+  components: { 
+    HeaderAreaTop, 
+    HeaderAreaBottom 
+  },
+  props: {
+    dataShop: Array,
+  },
 }
 </script>
 

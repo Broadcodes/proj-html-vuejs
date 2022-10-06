@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent /> <!-- Passare i dati per la navbar -->
+      <HeaderComponent :dataShop="shop" /> <!-- Passare i dati per la navbar -->
     </header>
     <main>
       <MainComponent />
@@ -17,9 +17,15 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 
+import { shop } from '@/data';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      shop,
+    }
+  },
   components: {
     HeaderComponent,
     MainComponent,
@@ -43,7 +49,7 @@ body {
   cursor: url('@/assets/img/cursor.png'), auto;
   scroll-behavior: smooth;
 
-  main{
+  main {
     padding-top: 112px;
   }
 }
