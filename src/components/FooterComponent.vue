@@ -36,7 +36,7 @@
         </div>
         <div class="subscribe">
           <h3>Subscribe to our newsletter</h3>
-          <input type="text" name="email" id="email" placeholder="Insert your email ...*">
+          <input type="email" name="email" id="email" placeholder="Insert your email ...*">
           <input type="submit" value="Subscribe">
         </div>
       </div>
