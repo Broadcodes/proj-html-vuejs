@@ -5,48 +5,15 @@
       <h4>Recent articles</h4>
     </div>
     <div class="cards">
-      <div class="card">
-        <img src="../assets/images/blog-1-400x400.jpg" alt="blog-1">
+      <div class="card" v-for="item in blog" :key="item.id">
+        <img :src="item.img" :alt="item.id">
         <div class="textHover">
-          <h3>How to 'loose leash walk' your dog</h3>
-          <h4>Tips & Tricks</h4>
+          <h3>{{item.title}}</h3>
+          <h4>{{item.article}}</h4>
         </div>
         <div class="textCard">
-          <h3>How to 'loose leash walk' your dog</h3>
-          <h4>April 21st, 2020</h4>
-        </div>
-      </div>
-      <div class="card">
-        <img src="../assets/images/blog-2-400x400.jpg" alt="blog-2">
-        <div class="textHover">
-          <h3>Stop cats from scratching furniture</h3>
-          <h4>Tips & Tricks</h4>
-        </div>
-        <div class="textCard">
-          <h3>Stop cats from scratching furniture</h3>
-          <h4>April 19th, 2020</h4>
-        </div>
-      </div>
-      <div class="card">
-        <img src="../assets/images/blog-3-400x400.jpg" alt="blog-3">
-        <div class="textHover">
-          <h3>Where to buy the best pet food</h3>
-          <h4>Tips & Tricks</h4>
-        </div>
-        <div class="textCard">
-          <h3>Where to buy the best pet food</h3>
-          <h4>April 16th, 2020</h4>
-        </div>
-      </div>
-      <div class="card">
-        <img src="../assets/images/blog-4-400x400.jpg" alt="blog-4">
-        <div class="textHover">
-          <h3>Proper care for your pet toys</h3>
-          <h4>Tips & Tricks</h4>
-        </div>
-        <div class="textCard">
-          <h3>Proper care for your pet toys</h3>
-          <h4>April 17th, 2020</h4>
+          <h3>{{item.title}}</h3>
+          <h4>{{item.date}}</h4>
         </div>
       </div>
     </div>
@@ -56,7 +23,10 @@
 
 <script>
 export default {
-  name: 'ArticlesBlogArea'
+  name: 'ArticlesBlogArea',
+  props:{
+    blog: Array
+  }
 }
 </script>
 

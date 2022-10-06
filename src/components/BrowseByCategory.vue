@@ -6,7 +6,7 @@
         consequat nulla rhoncus dictum. Viverra.</p>
     </div>
     <div class="contenitorCards">
-      <div class="card" v-for="item in getData()" :key="item.id">
+      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id">
         <img :src="item.img" :alt="item.name">
         <p>{{item.category}} ({{item.quantity}})</p>
       </div>
@@ -20,29 +20,23 @@ export default {
   data() {
     return {
       arrData: [],
+      productID: [4, 5, 6, 9]
     }
   },
   props: {
     data: Array
   },
   methods: {
-    getData() {
+    getData(id) {
       let arr = [];
 
-      this.data.forEach(element => {
-        if (element.id === 9) {
-          arr.push(element)
-        }
-        if (element.id === 5) {
-          arr.push(element)
-        }
-        if (element.id === 4) {
-          arr.push(element)
-        }
-        if (element.id === 6) {
-          arr.push(element)
-        }
-      });
+      for (let i = 0; i < id.length; i++) {
+        this.data.forEach(element => {
+          if (element.id === id[i]) {
+            arr.push(element)
+          }
+        })
+      }
 
       return arr;
     }

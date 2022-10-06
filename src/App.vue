@@ -4,7 +4,7 @@
       <HeaderComponent :dataShop="shop" />
     </header>
     <main>
-      <MainComponent :dataShop="shop" :dataFeedback="feedback" />
+      <MainComponent :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" />
     </main>
     <footer>
       <FooterComponent />
@@ -19,6 +19,7 @@ import FooterComponent from './components/FooterComponent.vue';
 
 import { shop } from '@/data';
 import { feedback } from '@/data';
+import { blog } from '@/data';
 
 export default {
   name: 'App',
@@ -26,6 +27,7 @@ export default {
     return {
       shop,
       feedback,
+      blog
     }
   },
   components: {

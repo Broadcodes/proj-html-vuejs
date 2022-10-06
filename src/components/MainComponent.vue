@@ -31,7 +31,7 @@
     <!-- Sezione relativa alle newsletter -->
     <NewsLetterArea />
     <!-- Sezione relativa agli articoli -->
-    <ArticlesBlogArea />
+    <ArticlesBlogArea :blog="dataBlog"/>
     <!-- Sezione relativa agli accessori per cani e cibo per gatti -->
     <AreaDogsAndCats />
     <!-- Sezione relativa alla barra verde in cui sono presenti le icone sulla spedizione, store e i pagamenti -->
@@ -56,7 +56,7 @@
       </div>
     </div>
     <!-- Sezione relativa ai nuovi arrivi per cani e gatti-->
-    <NewProductsArrival />
+    <NewProductsArrival :data="dataShop" />
   </div>
 </template>
 
@@ -75,7 +75,8 @@ export default {
   name: "MainComponent",
   props:{
     dataShop: Array,
-    dataFeedback: Array
+    dataFeedback: Array,
+    dataBlog: Array
   },
   components: {
     JumboTronArea,

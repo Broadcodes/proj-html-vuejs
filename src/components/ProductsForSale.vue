@@ -8,7 +8,7 @@
       <input type="button" value="View all products">
     </div>
     <div class="cards">
-      <div class="card" v-for="item in getData()" :key="item.id">
+      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id">
         <img :src="item.img" :alt="item.name">
         <div class="addToCart">
           <i class="fa-regular fa-square"></i>
@@ -28,27 +28,25 @@
 <script>
 export default {
   name: 'ProductsForSale',
+  data() {
+    return {
+      productID: [11, 12, 13, 14]
+    }
+  },
   props:{
     data: Array
   },
   methods: {
-    getData() {
+    getData(id) {
       let arr = [];
 
-      this.data.forEach(element => {
-        if (element.id === 14) {
-          arr.push(element)
-        }
-        if (element.id === 13) {
-          arr.push(element)
-        }
-        if (element.id === 12) {
-          arr.push(element)
-        }
-        if (element.id === 11) {
-          arr.push(element)
-        }
-      });
+      for (let i = 0; i < id.length; i++) {
+        this.data.forEach(element => {
+          if (element.id === id[i]) {
+            arr.push(element)
+          }
+        })
+      }
 
       return arr;
     }

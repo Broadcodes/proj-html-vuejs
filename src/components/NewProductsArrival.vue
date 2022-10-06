@@ -5,36 +5,11 @@
       <p>Latest products</p>
     </div>
     <div class="contenitorCards">
-      <div class="card">
-        <img src="../assets/images/product-8-500x500.jpg" alt="Bad">
-        <h3>Colored pet bed</h3>
-        <h4>$18.00 - $26.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-2-500x500.jpg" alt="Food">
-        <h3>Colorful ball set</h3>
-        <h4>$29.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-3-500x500.jpg" alt="Toys">
-        <span id="sale">Sale!</span>
-        <h3>Dog bone</h3>
-        <h4><span>$29.00</span>$18.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-4-500x500.jpg" alt="Transport">
-        <h3>Animal transport bag</h3>
-        <h4>$29.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-5-500x500.jpg" alt="Transport">
-        <h3>Animal transport cage</h3>
-        <h4>$35.00</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/product-10-500x500.jpg" alt="Transport">
-        <h3>Closable cat litter</h3>
-        <h4>$16.00</h4>
+      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id">
+        <img :src="item.img" :alt="item.name">
+        <span v-if="item.id === 5" id="sale">Sale!</span>
+        <h3>{{item.name}}</h3>
+        <h4><span v-if="item.id === 5">$29.00</span>{{item.price}}</h4>
       </div>
     </div>
   </div>
@@ -42,7 +17,30 @@
 
 <script>
 export default {
-  name: 'NewProductsArrival'
+  name: 'NewProductsArrival',
+  data() {
+    return {
+      productID: [8, 4, 5, 6, 7, 10]
+    }
+  },
+  props: {
+    data: Array
+  },
+  methods: {
+    getData(id) {
+      let arr = [];
+
+      for (let i = 0; i < id.length; i++) {
+        this.data.forEach(element => {
+          if (element.id === id[i]) {
+            arr.push(element)
+          }
+        })
+      }
+
+      return arr;
+    }
+  }
 }
 </script>
 
@@ -84,7 +82,7 @@ export default {
         width: 100%;
       }
 
-      #sale{
+      #sale {
         position: absolute;
         top: 15px;
         left: 20px;
@@ -93,19 +91,19 @@ export default {
         padding: 8px 8px;
         border-radius: 50%;
         font-size: 0.9rem;
-        
+
       }
 
-      h3{
+      h3 {
         font-size: 0.9rem;
         padding: 8px 0;
       }
 
-      h4{
+      h4 {
         color: rgb(136, 136, 136);
         font-size: 0.75rem;
 
-        span{
+        span {
           font-size: 0.6rem;
           padding: 10px;
           text-decoration: line-through #000;
