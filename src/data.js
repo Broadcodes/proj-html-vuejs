@@ -143,21 +143,24 @@ export const shop = [
 
 export const feedback = [
     {
+        id: 1,
         name: 'Lisa Smith',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum perferendis, minima iste.',
-        img: '',
+        img: '../assets/images/avatar-3-400x400.jpg',
         company: 'ThemeFusion'
     },
     {
+        id: 2,
         name: 'Melissa Green',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum perferendis, minima iste.',
-        img: '',
+        img: '../assets/images/avatar-1-400x400.jpg',
         company: 'ThemeFusion'
     },
     {
+        id: 3,
         name: 'Sam Lewis',
         text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum perferendis, minima iste.',
-        img: '',
+        img: '../assets/images/avatar-4-400x400.jpg',
         company: 'ThemeFusion'
     },
 ]

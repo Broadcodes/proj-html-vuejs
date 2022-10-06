@@ -4,7 +4,7 @@
       <HeaderComponent :dataShop="shop" />
     </header>
     <main>
-      <MainComponent :dataShop="shop" />
+      <MainComponent :dataShop="shop" :dataFeedback="feedback" />
     </main>
     <footer>
       <FooterComponent />
@@ -18,12 +18,14 @@ import MainComponent from './components/MainComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 
 import { shop } from '@/data';
+import { feedback } from '@/data';
 
 export default {
   name: 'App',
   data() {
     return {
       shop,
+      feedback,
     }
   },
   components: {

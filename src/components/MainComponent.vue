@@ -27,7 +27,7 @@
     <!-- Sezione relativa ai prodotti in vendita -->
     <ProductsForSale :data="dataShop" />
     <!-- Sezione relativa alle testimonianze -->
-    <FeedbackUsers />
+    <FeedbackUsers :feedback="dataFeedback"/>
     <!-- Sezione relativa alle newsletter -->
     <NewsLetterArea />
     <!-- Sezione relativa agli articoli -->
@@ -74,7 +74,8 @@ import NewProductsArrival from './NewProductsArrival.vue';
 export default {
   name: "MainComponent",
   props:{
-    dataShop: Array
+    dataShop: Array,
+    dataFeedback: Array
   },
   components: {
     JumboTronArea,

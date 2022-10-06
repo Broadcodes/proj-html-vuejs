@@ -2,23 +2,10 @@
   <div class="container" id="reviews">
     <h2>Users testimonials</h2>
     <div class="cards">
-      <div class="card">
-        <img src="../assets/images/avatar-3-400x400.jpg" alt="">
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum
-          perferendis, minima iste.</h4>
-        <h4>Lisa Smith, ThemeFusion</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/avatar-1-400x400.jpg" alt="">
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum
-          perferendis, minima iste.</h4>
-        <h4>Melissa Green, ThemeFusion</h4>
-      </div>
-      <div class="card">
-        <img src="../assets/images/avatar-4-400x400.jpg" alt="">
-        <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, ea voluptates blanditiis nostrum
-          perferendis, minima iste.</h4>
-        <h4>Sam Lewis, ThemeFusion</h4>
+      <div class="card" v-for="item in this.feedback" :key="item.id">
+        <img :src="item.img" alt="item.name">
+        <h4>{{item.text}}</h4>
+        <h4>{{item.name}}, {{item.company}}</h4>
       </div>
     </div>
   </div>
@@ -26,7 +13,10 @@
 
 <script>
 export default {
-
+  name: 'FeedbackUsers',
+  props:{
+    feedback: Array
+  }
 }
 </script>
 
