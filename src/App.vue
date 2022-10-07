@@ -17,7 +17,7 @@
 
     </main>
     <footer>
-      <FooterComponent />
+      <FooterComponent :dataShop="shop" @page="getPage" />
     </footer>
   </div>
 </template>

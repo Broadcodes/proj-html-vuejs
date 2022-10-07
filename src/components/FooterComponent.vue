@@ -17,19 +17,26 @@
             <div class="links">
               <h2>Shop by brand</h2>
               <ul>
-                <li><a href="#">Bed</a></li>
-                <li><a href="#">Food</a></li>
-                <li><a href="#">Toys</a></li>
-                <li><a href="#">Transport</a></li>
+                <li v-for="item in this.getCategory()" :key="item.category">
+                  <p @click="setPage('Shop')">{{item}}</p>
+                </li>
               </ul>
             </div>
             <div class="links">
               <h2>Useful links</h2>
               <ul>
-                <li><a href="#">My account</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Checkout</a></li>
-                <li><a href="#">Cart</a></li>
+                <li>
+                  <p>My account</p>
+                </li>
+                <li>
+                  <p>Orders</p>
+                </li>
+                <li>
+                  <p>Checkout</p>
+                </li>
+                <li>
+                  <p>Cart</p>
+                </li>
               </ul>
             </div>
           </div>
@@ -42,11 +49,11 @@
       </div>
       <div class="areaFooterBottom">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Blog</li>
-          <li>Contact</li>
-          <li>Shop</li>
+          <li @click="setPage('Home')">Home</li>
+          <li @click="setPage('About')">About</li>
+          <li @click="setPage('Blog')">Blog</li>
+          <li @click="setPage('Contact')">Contact</li>
+          <li @click="setPage('Shop')">Shop</li>
         </ul>
         <ul>
           <li><i class="fa-brands fa-facebook-f"></i></li>
@@ -65,7 +72,26 @@
 
 <script>
 export default {
-  name: 'FooterComponent'
+  name: 'FooterComponent',
+  props: {
+    dataShop: Array
+  },
+  methods: {
+    getCategory() {
+      let arr = [];
+
+      this.dataShop.forEach(element => {
+        arr.push(element.category)
+      });
+
+      return arr.filter((x, i) =>
+        arr.indexOf(x) === i
+      );
+    },
+    setPage(value) {
+      this.$emit('page', value);
+    }
+  }
 }
 </script>
 
@@ -130,8 +156,9 @@ export default {
               font-size: 0.8rem;
               padding: 10px 0;
 
-              a {
+              p {
                 color: #fff;
+                cursor: pointer;
                 text-decoration: none;
 
                 &:hover {
