@@ -1,7 +1,7 @@
 <template>
     <div class="container" id="topHeader">
         <div class="logo">
-            <img src="@/assets/images/dark-pet-logo.png" alt="logo">
+            <img src="@/assets/images/dark-pet-logo.png" alt="logo" @click="$emit('pageHome', 'Home')">
         </div>
         <div class="areaSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -51,6 +51,7 @@ export default {
         display: flex;
         justify-content: left;
         align-items: center;
+        cursor: pointer;
 
         img {
             width: 80%;

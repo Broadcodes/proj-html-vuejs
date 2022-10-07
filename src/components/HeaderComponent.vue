@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart"/>
+    <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart" @pageHome="getPage"/>
     <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" :pageActive="setPageActive"/>
   </div>
 </template>
