@@ -82,7 +82,7 @@ export const shop = [
     {
         id: 9,
         name: 'Colored pet bed',
-        img: './products/product-9-500x500.jpg',
+        img: '/products/product-9-500x500.jpg',
         animal: 'Dogs',
         brand: 'Friskies',
         quantity: '1',

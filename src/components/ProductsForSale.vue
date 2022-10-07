@@ -5,7 +5,7 @@
         <h4>All-time best sellers</h4>
         <h2>Items everyone loves</h2>
       </div>
-      <input type="button" value="View all products">
+      <input type="button" value="View all products" @click="setPage">
     </div>
     <div class="cards" @click="setproductInCart()">
       <div class="card" v-for="item in this.getData(this.productID)" :key="item.id" @click="setValueAddCart(item.id)">
@@ -58,9 +58,12 @@ export default {
     setValueAddCart(value) {
       this.isSelected = value
     },
-    setproductInCart(){
+    setproductInCart() {
       this.productInCart = 0;
       this.$emit('productInCart', ++this.productInCart);
+    },
+    setPage() {
+      this.$emit('page', 'Shop');
     }
   }
 }

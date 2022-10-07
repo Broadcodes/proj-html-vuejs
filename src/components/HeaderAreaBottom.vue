@@ -2,7 +2,7 @@
   <div class="navBar">
     <ul>
       <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home')"
-        :class="{active : this.page === 'Home'}">Home <i class="fa-solid fa-chevron-down"></i>
+        :class="{active : setNewPageActive() === 'Home'}">Home <i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listHome : listHome}">
           <li @click="setEmitToHome('Home')"><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by
               category</a></li>
@@ -14,7 +14,7 @@
         </ul>
       </li>
       <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop')"
-        :class="{active : this.page === 'Shop'}">Shop <i class="fa-solid fa-chevron-down"></i>
+        :class="{active : setNewPageActive() === 'Shop'}">Shop <i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listShop : listShop}">
           <li @mouseenter="getShowMenu('dogs')" @mouseleave="getShowMenu('dogs')"><i class="fa-solid fa-bone"></i>Dogs<i
               class="fa-solid fa-chevron-down"></i>
@@ -30,11 +30,11 @@
           </li>
         </ul>
       </li>
-      <li @click="setEmitToHome('About')" :class="{active : this.page === 'About'}">About</li>
-      <li @click="setEmitToHome('Blog')" :class="{active : this.page === 'Blog'}">Blog</li>
-      <li @click="setEmitToHome('Contact')" :class="{active : this.page === 'Contact'}">Contact</li>
+      <li @click="setEmitToHome('About')" :class="{active : setNewPageActive() === 'About'}">About</li>
+      <li @click="setEmitToHome('Blog')" :class="{active : setNewPageActive() === 'Blog'}">Blog</li>
+      <li @click="setEmitToHome('Contact')" :class="{active : setNewPageActive() === 'Contact'}">Contact</li>
       <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')"
-        :class="{active : this.page === 'Brand'}">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
+        :class="{active : setNewPageActive() === 'Brand'}">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
         <ul :class="{listBrand : listBrand}">
           <li v-for="item in this.getBrand()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
         </ul>
@@ -58,8 +58,17 @@ export default {
   },
   props: {
     menu: Array,
+    pageActive: String
   },
   methods: {
+    setNewPageActive(){
+
+      if(this.pageActive !== ''){
+        this.page = this.pageActive;
+      }
+
+      return this.page;
+    },
     getCategory() {
       let arr = [];
 

@@ -5,7 +5,7 @@
       <div class="text">
         <h4>FIND THE BEST ANIMAL SUPPLIES</h4>
         <h2>Popular accessories</h2>
-        <input type="button" value="View all toys accessories">
+        <input type="button" value="View all toys accessories" @click="setPage">
       </div>
     </div>
     <div class="cats">
@@ -13,7 +13,7 @@
       <div class="text">
         <h4>FIND THE BEST FOOD</h4>
         <h2>New food arrival</h2>
-        <input type="button" value="View all food products">
+        <input type="button" value="View all food products" @click="setPage">
       </div>
     </div>
   </div>
@@ -21,7 +21,12 @@
   
 <script>
 export default {
-  name: 'AreaDogsAndCats'
+  name: 'AreaDogsAndCats',
+  methods: {
+    setPage() {
+      this.$emit('page', 'Shop');
+    }
+  }
 }
 </script>
   
@@ -40,7 +45,7 @@ export default {
     transition: transform .6s;
 
 
-    &:hover{
+    &:hover {
       transform: scale(1.05);
       z-index: 5;
     }

@@ -1,6 +1,7 @@
 <template>
     <div>
         AREA BLOG
+        <div id="blog"></div>
     </div>
 </template>
 

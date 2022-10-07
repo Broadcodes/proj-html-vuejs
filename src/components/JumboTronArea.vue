@@ -3,7 +3,7 @@
         <div class="text">
             <h4>FIND THE BEST ANIMAL SUPPLIES</h4>
             <h2>We know animals are a part of your family, let us help take care of them.</h2>
-            <input type="button" value="Learn more about us">
+            <input type="button" value="Learn more about us" @click="setPage">
         </div>
         <div class="iconMessage">
             <span><img src="../assets/images/demos.png" alt="demos"></span>
@@ -14,7 +14,12 @@
 
 <script>
 export default {
-    name: 'JumboTronArea'
+    name: 'JumboTronArea',
+    methods:{
+        setPage(){
+            this.$emit('page', 'Blog');
+        }
+    }
 }
 </script>
 

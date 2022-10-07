@@ -5,7 +5,7 @@
       <div class="text">
         <h4>FIND THE BEST ANIMAL SUPPLIES</h4>
         <h2>New arrivals weekly</h2>
-        <input type="button" value="Learn more about us">
+        <input type="button" value="Learn more about us" @click="setPage">
       </div>
     </div>
   </div>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  name: 'NewArrivalsWeekly'
+  name: 'NewArrivalsWeekly',
+  methods: {
+    setPage() {
+      this.$emit('page', 'Shop');
+    }
+  }
 }
 </script>
 

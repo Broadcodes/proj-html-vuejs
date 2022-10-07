@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart"/>
-    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage"/>
+    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" :pageActive="setPageActive"/>
   </div>
 </template>
 
@@ -21,7 +21,8 @@ export default {
   },
   props: {
     dataShop: Array,
-    producsInCart: Number
+    producsInCart: Number,
+    setPageActive: String
   },
   methods:{
     getPage(value){

@@ -9,31 +9,31 @@
       </ul>
     </div>
     <!-- Sezione relativa alla jumbotron dell'homepage -->
-    <JumboTronArea />
+    <JumboTronArea @page="typePage" />
     <!-- Sezione relativa alla barra verde inferiore alla jumbotron -->
     <div class="bannerBottomJumbo">
       <img src="../assets/images/food-transparent-5-400x223.png" alt="croccantini">
       <div class="text">
         <p>Get $25 OFF your first purchase of our homemade pet food!</p>
-        <a href="#">Visit the shop</a>
+        <p @click="typePage('Shop')">Visit the shop</p>
       </div>
     </div>
     <!-- Sezione relativa alla Categoria dei prodotti -->
     <BrowseByCategory :data="dataShop"/>
     <!-- Sezione relativa alla vendita alimentare dell'animale -->
-    <FoodShopArea />
+    <FoodShopArea @page="typePage" />
     <!-- Sezione relativa ai nuovi arrivi settimanali -->
-    <NewArrivalsWeekly />
+    <NewArrivalsWeekly @page="typePage" />
     <!-- Sezione relativa ai prodotti in vendita -->
-    <ProductsForSale :data="dataShop" @productInCart="quantityProducts"/>
+    <ProductsForSale :data="dataShop" @productInCart="quantityProducts" @page="typePage" />
     <!-- Sezione relativa alle testimonianze -->
     <FeedbackUsers :feedback="dataFeedback"/>
     <!-- Sezione relativa alle newsletter -->
     <NewsLetterArea />
     <!-- Sezione relativa agli articoli -->
-    <ArticlesBlogArea :blog="dataBlog"/>
+    <ArticlesBlogArea :blog="dataBlog" @page="typePage"/>
     <!-- Sezione relativa agli accessori per cani e cibo per gatti -->
-    <AreaDogsAndCats />
+    <AreaDogsAndCats @page="typePage" />
     <!-- Sezione relativa alla barra verde in cui sono presenti le icone sulla spedizione, store e i pagamenti -->
     <div class="bannerPay">
       <div class="cards">
@@ -93,6 +93,9 @@ export default {
   methods:{
     quantityProducts(value){
       this.$emit('productsNumber', value);
+    },
+    typePage(value){
+      this.$emit('page', value);
     }
   }
 }
@@ -164,9 +167,14 @@ export default {
       font-size: 0.9rem;
     }
 
-    a {
+    p:nth-child(2) {
       color: rgb(189, 189, 189);
       font-size: 0.9rem;
+      cursor: pointer;
+      
+      &:hover{
+        text-decoration: underline;
+      }
     }
   }
 }

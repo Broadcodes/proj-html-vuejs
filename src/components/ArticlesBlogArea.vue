@@ -17,15 +17,20 @@
         </div>
       </div>
     </div>
-    <input type="button" value="Read all articles">
+    <input type="button" value="Read all articles" @click="setPage">
   </div>
 </template>
 
 <script>
 export default {
   name: 'ArticlesBlogArea',
-  props:{
+  props: {
     blog: Array
+  },
+  methods: {
+    setPage() {
+      this.$emit('page', 'Blog');
+    }
   }
 }
 </script>
@@ -51,11 +56,11 @@ export default {
       width: calc(100% / 4 - 20px);
       position: relative;
 
-      .textHover{
+      .textHover {
         display: none;
       }
 
-      &:hover .textHover{
+      &:hover .textHover {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -68,20 +73,20 @@ export default {
         color: #fff;
         padding: 25px;
 
-        h3{
+        h3 {
           font-size: 1.3rem;
           transform: translateY(-50px);
           font-size: 1.2rem;
         }
 
-        h4{
+        h4 {
           transform: translateY(-50px);
           padding: 10px;
           font-size: 0.75rem;
         }
       }
 
-      &:hover img{
+      &:hover img {
         filter: sepia(20%) brightness(85%);
       }
 

@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" @page="getPage" @search="getValueSearch" :producsInCart="productNumbers"/>
+      <HeaderComponent :dataShop="shop" @page="getPage" @search="getValueSearch" :producsInCart="productNumbers" :setPageActive="pageSelected"/>
     </header>
     <main>
       <SearchBar v-if="this.textSearch !== ''" />
       <div v-else>
-        <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" @productsNumber="numberProductsInCart"/>
-        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop"  @cart="numberProductsInCart"/>
+        <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
+          @productsNumber="numberProductsInCart" @page="getPage" />
+        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart" />
         <AboutComponent v-else-if="this.pageSelected === 'About'" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
@@ -68,10 +69,10 @@ export default {
     getPage(value) {
       this.pageSelected = value;
     },
-    getValueSearch(value){
+    getValueSearch(value) {
       this.textSearch = value;
     },
-    numberProductsInCart(value){
+    numberProductsInCart(value) {
       this.productNumbers += value;
     }
   },
