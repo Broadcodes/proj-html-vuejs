@@ -201,6 +201,8 @@ export default {
           border-radius: 5px;
           padding: 6px;
           font-size: 0.9rem;
+          color: #000;
+          font-weight: 300;
 
           // Sottocategorie del Dogs e del Cats
           ul {
