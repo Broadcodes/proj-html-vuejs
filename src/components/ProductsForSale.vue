@@ -59,6 +59,7 @@ export default {
       this.isSelected = value
     },
     setproductInCart(){
+      this.productInCart = 0;
       this.$emit('productInCart', ++this.productInCart);
     }
   }

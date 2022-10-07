@@ -11,6 +11,7 @@
                         <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
             </ul>
@@ -25,6 +26,7 @@
                         <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
             </ul>
@@ -39,6 +41,7 @@
                         <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
             </ul>
@@ -53,6 +56,7 @@
                         <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
             </ul>
@@ -67,6 +71,7 @@
                         <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
             </ul>
@@ -81,6 +86,7 @@
                         <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
             </ul>
@@ -91,6 +97,11 @@
 <script>
 export default {
     name: 'ShopComponent',
+    data(){
+        return{
+            quantity: 0
+        }
+    },
     props: {
         dataShop: Array
     },
@@ -104,8 +115,11 @@ export default {
                 }
             });
 
-            console.log(arr);
             return arr;
+        },
+        setQuantityCart(){
+            this.quantity = 0;
+            this.$emit('cart', ++this.quantity);
         }
     }
 }
@@ -134,12 +148,13 @@ export default {
         .card {
             display: flex;
             flex-direction: column;
+            justify-content: space-around;
             column-gap: 20px;
             margin: 10px;
             max-width: 350px;
             padding: 50px;
-            min-height: 530px;
-            max-height: 530px;
+            min-height: 570px;
+            max-height: 570px;
             background-color: rgb(240, 234, 194);
             border-radius: 30px;
 
@@ -164,6 +179,20 @@ export default {
                 span:nth-child(2) {
                     font-size: 1rem;
                     padding: 0 10px;
+                }
+            }
+
+            input{
+                padding: 10px 20px;
+                background-color: #fff;
+                border-radius: 25px;
+                border: none;
+                margin: 10px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #1e3120;
+                    color: #fff;
                 }
             }
         }

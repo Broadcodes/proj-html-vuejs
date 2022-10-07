@@ -7,7 +7,7 @@
       <SearchBar v-if="this.textSearch !== ''" />
       <div v-else>
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" @productsNumber="numberProductsInCart"/>
-        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" />
+        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop"  @cart="numberProductsInCart"/>
         <AboutComponent v-else-if="this.pageSelected === 'About'" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
@@ -72,7 +72,7 @@ export default {
       this.textSearch = value;
     },
     numberProductsInCart(value){
-      this.productNumbers = value;
+      this.productNumbers += value;
     }
   },
   created() {
