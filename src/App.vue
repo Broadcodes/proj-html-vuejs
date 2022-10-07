@@ -1,10 +1,19 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" />
+      <HeaderComponent :dataShop="shop" @page="getPage" @search="getValueSearch"/>
     </header>
     <main>
-      <MainComponent :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" />
+      <SearchBar v-if="this.textSearch !== ''" />
+      <div v-else>
+        <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" />
+        <ShopComponent v-else-if="this.pageSelected === 'Shop'" />
+        <AboutComponent v-else-if="this.pageSelected === 'About'" />
+        <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
+        <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
+        <BrandComponent v-else-if="this.pageSelected === 'Brand'" />
+      </div>
+
     </main>
     <footer>
       <FooterComponent />
@@ -16,15 +25,28 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import MainComponent from './components/MainComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
+import ShopComponent from './components/ShopComponent.vue';
+import AboutComponent from './components/AboutComponent.vue';
+import BlogComponent from './components/BlogComponent.vue';
+import ContactComponent from './components/ContactComponent.vue';
+import BrandComponent from './components/BrandComponent.vue';
 
 import { shop } from '@/data';
 import { feedback } from '@/data';
 import { blog } from '@/data';
+import SearchBar from './components/SearchBar.vue';
+
+
+
+
+
 
 export default {
   name: 'App',
   data() {
     return {
+      pageSelected: '',
+      textSearch: '',
       shop,
       feedback,
       blog
@@ -33,7 +55,25 @@ export default {
   components: {
     HeaderComponent,
     MainComponent,
-    FooterComponent
+    FooterComponent,
+    ShopComponent,
+    AboutComponent,
+    BlogComponent,
+    ContactComponent,
+    BrandComponent,
+    SearchBar
+  },
+  methods: {
+    getPage(value) {
+      console.log(value);
+      this.pageSelected = value;
+    },
+    getValueSearch(value){
+      this.textSearch = value;
+    }
+  },
+  created() {
+    this.pageSelected = 'Home';
   }
 }
 </script>

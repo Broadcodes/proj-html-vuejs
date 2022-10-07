@@ -8,13 +8,13 @@
       <input type="button" value="View all products">
     </div>
     <div class="cards">
-      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id">
+      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id" @click="setValueAddCart()">
         <img :src="item.img" :alt="item.name">
-        <div class="addToCart">
+        <div class="hide" :class="{addToCart : getValueShow()}">
           <i class="fa-regular fa-square"></i>
           <h3>ADD TO CART?</h3>
         </div>
-        <div class="addedToCart">
+        <div class="hide" :class="{addedToCart : !getValueShow()}">
           <i class="fa-regular fa-square-check"></i>
           <h3>VIEW CART</h3>
         </div>
@@ -30,10 +30,11 @@ export default {
   name: 'ProductsForSale',
   data() {
     return {
-      productID: [11, 12, 13, 14]
+      productID: [11, 12, 13, 14],
+      isSelected: true,
     }
   },
-  props:{
+  props: {
     data: Array
   },
   methods: {
@@ -49,6 +50,16 @@ export default {
       }
 
       return arr;
+    },
+    getValueShow() {
+      return this.isSelected;
+    },
+    setValueAddCart() {
+      // if(this.isSelected){
+        this.isSelected = false
+      // } else {
+      //   this.isSelected = true;
+      // }
     }
   }
 }
@@ -98,9 +109,13 @@ export default {
       text-align: center;
       position: relative;
 
-      .addToCart,
-      .addedToCart {
+      .hide {
         display: none;
+      }
+
+      &:hover .addToCart,
+      &:hover .addedToCart {
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -123,14 +138,6 @@ export default {
           transform: translateY(-25px);
         }
       }
-
-      &:hover .addToCart {
-        display: flex;
-      }
-
-      // .addedToCart{
-      //   display: flex;
-      // }
 
       &:hover img {
         filter: sepia(10%) brightness(85%);

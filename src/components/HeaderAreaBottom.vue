@@ -1,34 +1,42 @@
 <template>
   <div class="navBar">
     <ul>
-      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')">Home <i class="fa-solid fa-chevron-down"></i>
+      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home')"
+        :class="{active : this.page === 'Home'}">Home <i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listHome : listHome}">
-          <li><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by category</a></li>
-          <li><a href="../components/FoodShopArea.vue/#kindsOfFood">Kinds of food</a></li>
-          <li><a href="../components/FeedbackUsers.vue/#reviews">Reviews</a></li>
-          <li><a href="../components/NewProductsArrival.vue/#newProductsArrival">New products arrival</a></li>
+          <li @click="setEmitToHome('Home')"><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by
+              category</a></li>
+          <li @click="setEmitToHome('Home')"><a href="../components/FoodShopArea.vue/#kindsOfFood">Kinds of food</a>
+          </li>
+          <li @click="setEmitToHome('Home')"><a href="../components/FeedbackUsers.vue/#reviews">Reviews</a></li>
+          <li @click="setEmitToHome('Home')"><a href="../components/NewProductsArrival.vue/#newProductsArrival">New
+              products arrival</a></li>
         </ul>
       </li>
-      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')">Shop <i class="fa-solid fa-chevron-down"></i>
+      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop')"
+        :class="{active : this.page === 'Shop'}">Shop <i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listShop : listShop}">
-          <li @mouseenter="getShowMenu('dogs')" @mouseleave="getShowMenu('dogs')"><i class="fa-solid fa-bone"></i>Dogs<i class="fa-solid fa-chevron-down"></i>
+          <li @mouseenter="getShowMenu('dogs')" @mouseleave="getShowMenu('dogs')"><i class="fa-solid fa-bone"></i>Dogs<i
+              class="fa-solid fa-chevron-down"></i>
             <ul :class="{categoryDogs : categoryDogs}">
-              <li v-for="item in this.getCategory()" :key="item.id">{{item}}</li>
+              <li v-for="item in this.getCategory()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
             </ul>
           </li>
-          <li @mouseenter="getShowMenu('cats')" @mouseleave="getShowMenu('cats')"><i class="fa-solid fa-paw"></i>Cats<i class="fa-solid fa-chevron-down"></i>
+          <li @mouseenter="getShowMenu('cats')" @mouseleave="getShowMenu('cats')"><i class="fa-solid fa-paw"></i>Cats<i
+              class="fa-solid fa-chevron-down"></i>
             <ul :class="{categoryCats : categoryCats}">
-              <li v-for="item in this.getCategory()" :key="item.id">{{item}}</li>
+              <li v-for="item in this.getCategory()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li>About</li>
-      <li>Blog</li>
-      <li>Contact</li>
-      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
+      <li @click="setEmitToHome('About')" :class="{active : this.page === 'About'}">About</li>
+      <li @click="setEmitToHome('Blog')" :class="{active : this.page === 'Blog'}">Blog</li>
+      <li @click="setEmitToHome('Contact')" :class="{active : this.page === 'Contact'}">Contact</li>
+      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')"
+        :class="{active : this.page === 'Brand'}">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
         <ul :class="{listBrand : listBrand}">
-          <li v-for="item in this.getBrand()" :key="item.id">{{item}}</li>
+          <li v-for="item in this.getBrand()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
         </ul>
       </li>
     </ul>
@@ -38,13 +46,14 @@
 <script>
 export default {
   name: 'HeaderAreaBottom',
-  data(){
-    return{
+  data() {
+    return {
       listHome: false,
       listShop: false,
       categoryDogs: false,
       categoryCats: false,
       listBrand: false,
+      page: 'Home'
     }
   },
   props: {
@@ -73,48 +82,52 @@ export default {
         arr.indexOf(x) === i
       );
     },
-    getShowMenu(value){
+    getShowMenu(value) {
 
       switch (value) {
         case 'home':
-          if(this.listHome === false){
+          if (this.listHome === false) {
             this.listHome = true;
           } else {
             this.listHome = false;
           }
           break;
         case 'shop':
-          if(this.listShop === false){
+          if (this.listShop === false) {
             this.listShop = true;
           } else {
             this.listShop = false;
           }
           break;
         case 'dogs':
-          if(this.categoryDogs === false){
+          if (this.categoryDogs === false) {
             this.categoryDogs = true;
           } else {
             this.categoryDogs = false;
           }
           break;
         case 'cats':
-          if(this.categoryCats === false){
+          if (this.categoryCats === false) {
             this.categoryCats = true;
           } else {
             this.categoryCats = false;
           }
           break;
         case 'brand':
-          if(this.listBrand === false){
+          if (this.listBrand === false) {
             this.listBrand = true;
           } else {
             this.listBrand = false;
           }
           break;
-      
+
         default:
           break;
       }
+    },
+    setEmitToHome(value) {
+      this.page = value;
+      this.$emit('pageSelected', value);
     }
   }
 }
@@ -137,6 +150,11 @@ export default {
     display: flex;
     justify-content: center;
 
+    &>li.active {
+      color: #3d6f42;
+      font-weight: 600;
+    }
+
     &>li {
       display: flex;
       align-items: center;
@@ -150,6 +168,7 @@ export default {
         padding: 5px 0;
         text-decoration: none;
         color: #000;
+        font-weight: 300;
       }
 
       i {
@@ -197,7 +216,7 @@ export default {
       }
 
       .listShop li {
-        &:hover{
+        &:hover {
           background-color: rgb(237, 237, 237);
         }
 
@@ -214,7 +233,7 @@ export default {
       .listShop,
       .categoryDogs,
       .categoryCats,
-      .listBrand{
+      .listBrand {
         display: block;
       }
 

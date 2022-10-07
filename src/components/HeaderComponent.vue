@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <HeaderAreaTop />
-    <HeaderAreaBottom :menu="dataShop"/>
+    <HeaderAreaTop @searchInput="getValueSearch"/>
+    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage"/>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ import HeaderAreaTop from './HeaderAreaTop.vue';
 import HeaderAreaBottom from './HeaderAreaBottom.vue';
 export default {
   name: "HeaderComponent",
+  data(){
+    return{
+      valuePageFromHeader: this.valuePage,
+    }
+  },
   components: { 
     HeaderAreaTop, 
     HeaderAreaBottom 
@@ -17,6 +22,14 @@ export default {
   props: {
     dataShop: Array,
   },
+  methods:{
+    getPage(value){
+      this.$emit('page', value);
+    },
+    getValueSearch(value){
+      this.$emit('search', value);
+    }
+  }
 }
 </script>
 
