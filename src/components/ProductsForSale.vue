@@ -7,14 +7,14 @@
       </div>
       <input type="button" value="View all products">
     </div>
-    <div class="cards">
-      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id" @click="setValueAddCart()">
+    <div class="cards" @click="setproductInCart()">
+      <div class="card" v-for="item in this.getData(this.productID)" :key="item.id" @click="setValueAddCart(item.id)">
         <img :src="item.img" :alt="item.name">
-        <div class="hide" :class="{addToCart : getValueShow()}">
+        <div class="hide" :class="{addToCart : !getValueShow(item.id)}">
           <i class="fa-regular fa-square"></i>
           <h3>ADD TO CART?</h3>
         </div>
-        <div class="hide" :class="{addedToCart : !getValueShow()}">
+        <div class="hide" :class="{addedToCart : getValueShow(item.id)}">
           <i class="fa-regular fa-square-check"></i>
           <h3>VIEW CART</h3>
         </div>
@@ -31,7 +31,8 @@ export default {
   data() {
     return {
       productID: [11, 12, 13, 14],
-      isSelected: true,
+      isSelected: -1,
+      productInCart: 0
     }
   },
   props: {
@@ -51,15 +52,14 @@ export default {
 
       return arr;
     },
-    getValueShow() {
-      return this.isSelected;
+    getValueShow(value) {
+      return value === this.isSelected;
     },
-    setValueAddCart() {
-      // if(this.isSelected){
-        this.isSelected = false
-      // } else {
-      //   this.isSelected = true;
-      // }
+    setValueAddCart(value) {
+      this.isSelected = value
+    },
+    setproductInCart(){
+      this.$emit('productInCart', ++this.productInCart);
     }
   }
 }

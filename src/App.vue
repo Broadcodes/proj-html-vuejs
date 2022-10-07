@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" @page="getPage" @search="getValueSearch"/>
+      <HeaderComponent :dataShop="shop" @page="getPage" @search="getValueSearch" :producsInCart="productNumbers"/>
     </header>
     <main>
       <SearchBar v-if="this.textSearch !== ''" />
       <div v-else>
-        <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" />
-        <ShopComponent v-else-if="this.pageSelected === 'Shop'" />
+        <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog" @productsNumber="numberProductsInCart"/>
+        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" />
         <AboutComponent v-else-if="this.pageSelected === 'About'" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
@@ -49,7 +49,8 @@ export default {
       textSearch: '',
       shop,
       feedback,
-      blog
+      blog,
+      productNumbers: 0
     }
   },
   components: {
@@ -65,11 +66,13 @@ export default {
   },
   methods: {
     getPage(value) {
-      console.log(value);
       this.pageSelected = value;
     },
     getValueSearch(value){
       this.textSearch = value;
+    },
+    numberProductsInCart(value){
+      this.productNumbers = value;
     }
   },
   created() {

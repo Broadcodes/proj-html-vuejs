@@ -25,7 +25,7 @@
     <!-- Sezione relativa ai nuovi arrivi settimanali -->
     <NewArrivalsWeekly />
     <!-- Sezione relativa ai prodotti in vendita -->
-    <ProductsForSale :data="dataShop" />
+    <ProductsForSale :data="dataShop" @productInCart="quantityProducts"/>
     <!-- Sezione relativa alle testimonianze -->
     <FeedbackUsers :feedback="dataFeedback"/>
     <!-- Sezione relativa alle newsletter -->
@@ -89,6 +89,11 @@ export default {
     ArticlesBlogArea,
     AreaDogsAndCats,
     NewProductsArrival
+  },
+  methods:{
+    quantityProducts(value){
+      this.$emit('productsNumber', value);
+    }
   }
 }
 </script>

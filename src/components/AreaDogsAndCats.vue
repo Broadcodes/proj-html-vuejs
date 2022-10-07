@@ -37,6 +37,13 @@ export default {
     display: flex;
     text-align: center;
     position: relative;
+    transition: transform .6s;
+
+
+    &:hover{
+      transform: scale(1.05);
+      z-index: 5;
+    }
 
     img {
       width: 100%;
