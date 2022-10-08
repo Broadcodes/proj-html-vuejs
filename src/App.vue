@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected"
-        @search="getValueSearch" :producsInCart="productNumbers" :setPageActive="pageSelected" />
+      <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected" @search="getValueSearch"
+        :producsInCart="productNumbers" :setPageActive="pageSelected" @animalCategory="getAnimalCategory" />
     </header>
     <main>
       <SearchBar v-if="this.textSearch !== ''" :dataShop="shop" :searchElementUser="textSearch"
@@ -10,7 +10,8 @@
       <div v-else>
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
           @productsNumber="numberProductsInCart" @page="getPage" />
-        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart" />
+        <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart"
+          :setAnimalCategory="animalCategory" />
         <AboutComponent v-else-if="this.pageSelected === 'About'" @page="getPage" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
@@ -50,7 +51,8 @@ export default {
       shop,
       feedback,
       blog,
-      productNumbers: 0
+      productNumbers: 0,
+      animalCategory: ''
     }
   },
   components: {
@@ -76,6 +78,9 @@ export default {
     },
     numberProductsInCart(value) {
       this.productNumbers += value;
+    },
+    getAnimalCategory(value) {
+      this.animalCategory = value;
     }
   },
   created() {

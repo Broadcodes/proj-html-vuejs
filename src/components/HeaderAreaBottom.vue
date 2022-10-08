@@ -2,7 +2,7 @@
   <div class="navBar">
     <ul>
       <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home')"
-        :class="{active : setNewPageActive() === 'Home'}">Home <i class="fa-solid fa-chevron-down"></i>
+        :class="{active : setNewPageActive() === 'Home'}"><a href="#"> Home </a><i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listHome : listHome}">
           <li @click="setEmitToHome('Home')"><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by
               category</a></li>
@@ -14,27 +14,29 @@
         </ul>
       </li>
       <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop')"
-        :class="{active : setNewPageActive() === 'Shop'}">Shop <i class="fa-solid fa-chevron-down"></i>
+        :class="{active : setNewPageActive() === 'Shop'}"><a href="#" @click="getValueItem('', '')">Shop</a> <i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listShop : listShop}">
           <li @mouseenter="getShowMenu('dogs')" @mouseleave="getShowMenu('dogs')"><i class="fa-solid fa-bone"></i>Dogs<i
               class="fa-solid fa-chevron-down"></i>
             <ul :class="{categoryDogs : categoryDogs}">
-              <li v-for="item in this.getCategory()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
+              <li v-for="item in this.getCategory()" :key="item.id" @click="getValueItem('dogs', item)">{{item}}</li>
             </ul>
           </li>
           <li @mouseenter="getShowMenu('cats')" @mouseleave="getShowMenu('cats')"><i class="fa-solid fa-paw"></i>Cats<i
               class="fa-solid fa-chevron-down"></i>
             <ul :class="{categoryCats : categoryCats}">
-              <li v-for="item in this.getCategory()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
+              <li v-for="item in this.getCategory()" :key="item.id" @click="getValueItem('cats', item)">{{item}}</li>
             </ul>
           </li>
         </ul>
       </li>
-      <li @click="setEmitToHome('About')" :class="{active : setNewPageActive() === 'About'}">About</li>
-      <li @click="setEmitToHome('Blog')" :class="{active : setNewPageActive() === 'Blog'}">Blog</li>
-      <li @click="setEmitToHome('Contact')" :class="{active : setNewPageActive() === 'Contact'}">Contact</li>
+      <li @click="setEmitToHome('About')" :class="{active : setNewPageActive() === 'About'}"><a href="#">About</a></li>
+      <li @click="setEmitToHome('Blog')" :class="{active : setNewPageActive() === 'Blog'}"><a href="#">Blog</a></li>
+      <li @click="setEmitToHome('Contact')" :class="{active : setNewPageActive() === 'Contact'}"><a href="#">Contact</a>
+      </li>
       <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')"
-        :class="{active : setNewPageActive() === 'Brand'}">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
+        :class="{active : setNewPageActive() === 'Brand'}"><a href="#">Shop by brand</a> <span><i
+            class="fa-solid fa-chevron-down"></i></span>
         <ul :class="{listBrand : listBrand}">
           <li v-for="item in this.getBrand()" :key="item.id" @click="elementSelected(item)">{{item}}</li>
         </ul>
@@ -61,9 +63,9 @@ export default {
     pageActive: String
   },
   methods: {
-    setNewPageActive(){
+    setNewPageActive() {
 
-      if(this.pageActive !== ''){
+      if (this.pageActive !== '') {
         this.page = this.pageActive;
       }
 
@@ -138,8 +140,12 @@ export default {
       this.page = value;
       this.$emit('pageSelected', value);
     },
-    elementSelected(value){
+    elementSelected(value) {
       this.$emit('elementMenuSelected', value);
+    },
+    getValueItem(animal, category){
+      let dataAnimalCategory = [animal, category];
+      this.$emit('elementAnimalCategory', dataAnimalCategory);
     }
   }
 }

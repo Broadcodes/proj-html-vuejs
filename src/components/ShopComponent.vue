@@ -1,91 +1,108 @@
 <template>
     <div class="container">
         <h2>Buy our best products at a best price</h2>
-        <div id="Food">
-            <h2>FOOD</h2>
-            <ul class="cards">
-                <li v-for="food in this.getCategory('Food')" :key="food.id">
-                    <div class="card">
-                        <img :src="food.img" :alt="food.name">
-                        <h2>{{food.name}}</h2>
-                        <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                        <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                        <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
-                    </div>
-                </li>
-            </ul>
+        <div v-if="setAnimalCategory[1] === ''">
+            <div id="Food">
+                <h2>FOOD</h2>
+                <ul class="cards">
+                    <li v-for="food in this.getCategory('Food')" :key="food.id">
+                        <div class="card">
+                            <img :src="food.img" :alt="food.name">
+                            <h2>{{food.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="Toys">
+                <h2>TOYS</h2>
+                <ul class="cards">
+                    <li v-for="food in this.getCategory('Toys')" :key="food.id">
+                        <div class="card">
+                            <img :src="food.img" :alt="food.name">
+                            <h2>{{food.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="Transport">
+                <h2>TRANSPORT</h2>
+                <ul class="cards">
+                    <li v-for="food in this.getCategory('Transport')" :key="food.id">
+                        <div class="card">
+                            <img :src="food.img" :alt="food.name">
+                            <h2>{{food.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="Bad">
+                <h2>BAD</h2>
+                <ul class="cards">
+                    <li v-for="food in this.getCategory('Bad')" :key="food.id">
+                        <div class="card">
+                            <img :src="food.img" :alt="food.name">
+                            <h2>{{food.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="Dogs">
+                <h2>DOGS</h2>
+                <ul class="cards">
+                    <li v-for="food in this.getCategory('Dogs')" :key="food.id">
+                        <div class="card">
+                            <img :src="food.img" :alt="food.name">
+                            <h2>{{food.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="Cats">
+                <h2>CATS</h2>
+                <ul class="cards">
+                    <li v-for="food in this.getCategory('Cats')" :key="food.id">
+                        <div class="card">
+                            <img :src="food.img" :alt="food.name">
+                            <h2>{{food.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="Toys">
-            <h2>TOYS</h2>
+        <div v-else>
             <ul class="cards">
-                <li v-for="food in this.getCategory('Toys')" :key="food.id">
-                    <div class="card">
-                        <img :src="food.img" :alt="food.name">
-                        <h2>{{food.name}}</h2>
-                        <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                        <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                        <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="Transport">
-            <h2>TRANSPORT</h2>
-            <ul class="cards">
-                <li v-for="food in this.getCategory('Transport')" :key="food.id">
-                    <div class="card">
-                        <img :src="food.img" :alt="food.name">
-                        <h2>{{food.name}}</h2>
-                        <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                        <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                        <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="Bad">
-            <h2>BAD</h2>
-            <ul class="cards">
-                <li v-for="food in this.getCategory('Bad')" :key="food.id">
-                    <div class="card">
-                        <img :src="food.img" :alt="food.name">
-                        <h2>{{food.name}}</h2>
-                        <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                        <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                        <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="Dogs">
-            <h2>DOGS</h2>
-            <ul class="cards">
-                <li v-for="food in this.getCategory('Dogs')" :key="food.id">
-                    <div class="card">
-                        <img :src="food.img" :alt="food.name">
-                        <h2>{{food.name}}</h2>
-                        <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                        <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                        <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div id="Cats">
-            <h2>CATS</h2>
-            <ul class="cards">
-                <li v-for="food in this.getCategory('Cats')" :key="food.id">
-                    <div class="card">
-                        <img :src="food.img" :alt="food.name">
-                        <h2>{{food.name}}</h2>
-                        <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                        <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                        <h3><span>Price: </span> <span>{{food.price}}</span></h3>
+                <li v-for="item in dataShop" :key="item.id">
+                    <div class="card"
+                        v-if="item.animal.toLowerCase() === setAnimalCategory[0].toLowerCase() && item.category.toLowerCase() === setAnimalCategory[1].toLowerCase()">
+                        <img :src=" item.img" :alt="item.name">
+                        <h2>{{item.name}}</h2>
+                        <h3><span>Animal: </span> <span>{{item.animal}}</span></h3>
+                        <h3><span>Quantity: </span> <span>{{item.quantity}}</span></h3>
+                        <h3><span>Price: </span> <span>{{item.price}}</span></h3>
                         <input type="button" value="Add To Cart" @click="setQuantityCart()">
                     </div>
                 </li>
@@ -97,27 +114,18 @@
 <script>
 export default {
     name: 'ShopComponent',
-    data(){
-        return{
-            quantity: 0
+    data() {
+        return {
+            quantity: 0,
+            animalCategory: []
         }
     },
     props: {
-        dataShop: Array
+        dataShop: Array,
+        setAnimalCategory: Array
     },
     methods: {
-        getCategory(typeCategory) {
-            let arr = [];
-
-            this.dataShop.forEach(element => {
-                if (element.category === typeCategory || element.animal === typeCategory) {
-                    arr.push(element);
-                }
-            });
-
-            return arr;
-        },
-        setQuantityCart(){
+        setQuantityCart() {
             this.quantity = 0;
             this.$emit('cart', ++this.quantity);
         }
@@ -175,14 +183,14 @@ export default {
                 span:nth-child(1) {
                     color: rgb(126, 45, 45);
                 }
-                
+
                 span:nth-child(2) {
                     font-size: 1rem;
                     padding: 0 10px;
                 }
             }
 
-            input{
+            input {
                 padding: 10px 20px;
                 background-color: #fff;
                 border-radius: 25px;
@@ -190,7 +198,7 @@ export default {
                 margin: 10px;
                 cursor: pointer;
 
-                &:hover{
+                &:hover {
                     background-color: #1e3120;
                     color: #fff;
                 }
