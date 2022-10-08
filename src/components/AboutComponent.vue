@@ -29,14 +29,19 @@
       </p>
     </div>
 
-    <input type="button" value="Contattaci">
+    <input type="button" value="Contact us" @click="setPage">
 
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AboutComponent'
+  name: 'AboutComponent',
+  methods: {
+    setPage() {
+      this.$emit('page', 'Contact');
+    }
+  }
 }
 </script>
 

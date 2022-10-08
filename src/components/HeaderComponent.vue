@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart" @pageHome="getPage"/>
-    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" :pageActive="setPageActive"/>
+    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" @elementMenuSelected="getElementMenuSelected" :pageActive="setPageActive"/>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
     },
     getValueSearch(value){
       this.$emit('search', value);
+    },
+    getElementMenuSelected(value){
+      this.$emit('elementMenu', value);
     }
   }
 }

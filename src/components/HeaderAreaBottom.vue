@@ -36,7 +36,7 @@
       <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')"
         :class="{active : setNewPageActive() === 'Brand'}">Shop by brand <span><i class="fa-solid fa-chevron-down"></i></span>
         <ul :class="{listBrand : listBrand}">
-          <li v-for="item in this.getBrand()" :key="item.id" @click="setEmitToHome(item)">{{item}}</li>
+          <li v-for="item in this.getBrand()" :key="item.id" @click="elementSelected(item)">{{item}}</li>
         </ul>
       </li>
     </ul>
@@ -137,6 +137,9 @@ export default {
     setEmitToHome(value) {
       this.page = value;
       this.$emit('pageSelected', value);
+    },
+    elementSelected(value){
+      this.$emit('elementMenuSelected', value);
     }
   }
 }

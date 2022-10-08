@@ -74,7 +74,7 @@ export const shop = [
         name: 'Colored pet bed',
         img: '/products/product-8-500x500.jpg',
         animal: 'Dogs',
-        brand: 'Friskies ',
+        brand: 'Mounge',
         quantity: '5',
         category: 'Bad',
         price: '$18.00 - $26.00'

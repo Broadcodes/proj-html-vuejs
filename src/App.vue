@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" @page="getPage" @search="getValueSearch" :producsInCart="productNumbers" :setPageActive="pageSelected"/>
+      <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected" @search="getValueSearch" :producsInCart="productNumbers" :setPageActive="pageSelected"/>
     </header>
     <main>
       <SearchBar v-if="this.textSearch !== ''" />
@@ -9,10 +9,10 @@
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
           @productsNumber="numberProductsInCart" @page="getPage" />
         <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart" />
-        <AboutComponent v-else-if="this.pageSelected === 'About'" />
+        <AboutComponent v-else-if="this.pageSelected === 'About'" @page="getPage" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
-        <BrandComponent v-else-if="this.pageSelected === 'Brand'" />
+        <BrandComponent v-else-if="this.pageSelected === 'Brand'" :dataShop="shop" :brandSelected="elementMenuSelected" @cart="numberProductsInCart"/>
       </div>
 
     </main>
@@ -47,6 +47,7 @@ export default {
   data() {
     return {
       pageSelected: '',
+      elementMenuSelected: '',
       textSearch: '',
       shop,
       feedback,
@@ -68,6 +69,10 @@ export default {
   methods: {
     getPage(value) {
       this.pageSelected = value;
+    },
+    elementSelected(value){
+      // console.log(value)
+      this.elementMenuSelected = value
     },
     getValueSearch(value) {
       this.textSearch = value;

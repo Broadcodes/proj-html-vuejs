@@ -30,7 +30,7 @@
       </div>
       <div class="form">
         <h2>Oppure</h2>
-        <h2>contattaci al numero: 123456789 o se preferisci</h2>
+        <h2>contattaci al numero: 1.800.123.4567 o se preferisci</h2>
         <h2>scrivici compilando il seguente form:</h2>
 
         <form action="">
