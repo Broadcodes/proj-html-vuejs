@@ -170,6 +170,7 @@ export default {
 <style lang="scss" scoped>
 .navBar {
   color: rgb(87, 87, 87);
+  background-color: rgba(255, 255, 255, 0.3);
 
   i {
     font-size: 0.7rem;

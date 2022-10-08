@@ -19,7 +19,7 @@
       </div>
     </div>
     <div v-else>
-      <h2>Nessun Brand selezionato dal menu</h2>
+      <h2>No Brand selected from the menu</h2>
     </div>
   </div>
 </template>
