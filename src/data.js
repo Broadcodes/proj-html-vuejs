@@ -198,43 +198,43 @@ export const blog = [
 
 export const articles = [
     {
-        id: '',
-        title: '',
-        article: '',
-        img: '',
-        date: '',
-        autor: ''
+        id: '1',
+        title: 'Elsa Morante and paradise on the Island of Arturo',
+        article: '110 years have passed since the birth of Elsa Morante and still her novels continue tosecure a place in our imagination, adhering to our dreams and our sensitivity as if not even a season had passed',
+        img: '/images/blog-1.png',
+        date: '16/05/2021',
+        autor: 'Ava Davies'
     },
     {
-        id: '',
-        title: '',
-        article: '',
-        img: '',
-        date: '',
-        autor: ''
+        id: '2',
+        title: 'The long treatise on the best way to grow',
+        article: 'Immersing ourselves in Rousseau\'s treatises, which investigate a completely different path towards individual formation, still pushes us, hundreds of years later, to ask ourselves questions about what we take for granted',
+        img: '/images/blog-2.png',
+        date: '14/06/2020',
+        autor: 'Daniel Murphy'
     },
     {
-        id: '',
-        title: '',
-        article: '',
-        img: '',
-        date: '',
-        autor: ''
+        id: '3',
+        title: 'Anna Achmatova: "But I warn you that I live"',
+        article: 'Achmatova therefore knew that she could tell, and to tell was a necessary pain for her, a tiring and terrible mission, but at the same time the only one capable of saving the course of events',
+        img: '/images/blog-3.png',
+        date: '11/02/2020',
+        autor: 'Harry Cooper'
     },
     {
-        id: '',
-        title: '',
-        article: '',
-        img: '',
-        date: '',
-        autor: ''
+        id: '4',
+        title: 'Three poems to remember Patrizia Cavalli',
+        article: 'That there are white thoughts that make our reality. But reality, the world, is somewhere else: it is Korogocho, Nairobi, it is the sea to listen',
+        img: '/images/blog-4.png',
+        date: '28/08/2021',
+        autor: 'Lauren Garcia'
     },
     {
-        id: '',
-        title: '',
-        article: '',
-        img: '',
-        date: '',
-        autor: ''
+        id: '5',
+        title: 'The adventurous life of the greatest children\'s writer',
+        article: 'When he was an RAF pilot and spy alongside Ian Fleming (yes, he himself, the writer of Marcus\' books',
+        img: '/images/blog-5.png',
+        date: '31/03/2021',
+        autor: 'Mary Harris'
     },
 ]

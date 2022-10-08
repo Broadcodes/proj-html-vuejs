@@ -4,9 +4,9 @@
     <div class="jumbo">
       <img src="@/assets/img/dogs-cat-together-with-pink-background_539007-7.jpg" alt="Avada Avenue Avadaville">
       <h2>Avada Avenue Avadaville</h2>
-      <h2>Noi... per il benessere degli animali</h2>
+      <h2>We ... for animal welfare</h2>
     </div>
-    <h2>Chi Siamo</h2>
+    <h2>About us</h2>
     <div class="textImage">
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic sint vel, at eligendi itaque illum explicabo
@@ -17,7 +17,7 @@
       </p>
       <img src="@/assets/images/vet_thumbnail-600x450.jpg" alt="Avada Avenue Avadaville">
     </div>
-    <h2>La nostra azienda</h2>
+    <h2>Our company</h2>
     <div class="textImage">
       <img src="@/assets/images/agency_thumbnail-600x450.jpg" alt="Avada Avenue Avadaville">
       <p>

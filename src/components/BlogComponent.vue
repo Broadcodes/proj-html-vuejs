@@ -1,52 +1,23 @@
 <template>
     <div class="container">
         <h2>Blog</h2>
-        <div class="textVideo">
+        <div class="textImage">
             <div class="text">
-                <h3>Tieniti aggiornato sulle ultime news:</h3>
-                <h3>Una piccola zampata per gli animali, un grande passo per l'umanità</h3>
+                <h3>Keep up to date with the latest news:</h3>
+                <h3>A little paw for the animals, a big step for humanity</h3>
             </div>
-            <img src="https://1.bp.blogspot.com/-NAXf2ayt3ws/TuNxTmMew8I/AAAAAAAAlk4/HKPMLMIv8wI/s1600/the_definitive_collection_of_cat_47.gif"
+            <img src="../../public/images/8737.png"
                 alt="Cats">
         </div>
         <div class="articles">
-            <div class="card">
-                <img src="https://1.bp.blogspot.com/-NAXf2ayt3ws/TuNxTmMew8I/AAAAAAAAlk4/HKPMLMIv8wI/s1600/the_definitive_collection_of_cat_47.gif"
-                    alt="">
+            <div class="card" v-for="article in articles" :key="article.id">
+                <img :src="article.img"
+                    :alt="article.autor">
                 <div class="text">
-                    <h2>titolo</h2>
-                    <h3>sottotitolo</h3>
-                    <h4>articolo: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas corrupti similique
-                        perspiciatis. Quas repellendus laborum excepturi laudantium molestiae tempora fugiat eligendi
-                        itaque rerum, ut eveniet magni, voluptatem illum quos deleniti?</h4>
-                    <h5>autore</h5>
-                    <h5>data</h5>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://1.bp.blogspot.com/-NAXf2ayt3ws/TuNxTmMew8I/AAAAAAAAlk4/HKPMLMIv8wI/s1600/the_definitive_collection_of_cat_47.gif"
-                    alt="">
-                <div class="text">
-                    <h2>titolo</h2>
-                    <h3>sottotitolo</h3>
-                    <h4>articolo: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas corrupti similique
-                        perspiciatis. Quas repellendus laborum excepturi laudantium molestiae tempora fugiat eligendi
-                        itaque rerum, ut eveniet magni, voluptatem illum quos deleniti?</h4>
-                    <h5>autore</h5>
-                    <h5>data</h5>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://1.bp.blogspot.com/-NAXf2ayt3ws/TuNxTmMew8I/AAAAAAAAlk4/HKPMLMIv8wI/s1600/the_definitive_collection_of_cat_47.gif"
-                    alt="">
-                <div class="text">
-                    <h2>titolo</h2>
-                    <h3>sottotitolo</h3>
-                    <h4>articolo: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas corrupti similique
-                        perspiciatis. Quas repellendus laborum excepturi laudantium molestiae tempora fugiat eligendi
-                        itaque rerum, ut eveniet magni, voluptatem illum quos deleniti?</h4>
-                    <h5>autore</h5>
-                    <h5>data</h5>
+                    <h2>{{article.title}}</h2>
+                    <h4>{{article.article}}</h4>
+                    <h5>{{article.autor}}</h5>
+                    <h5>{{article.date}}</h5>
                 </div>
             </div>
         </div>
@@ -54,8 +25,15 @@
 </template>
 
 <script>
+import { articles } from '@/data'
+
 export default {
-    name: 'BlogComponent'
+    name: 'BlogComponent',
+    data(){
+        return{
+            articles
+        }
+    }
 }
 </script>
 
@@ -68,12 +46,14 @@ export default {
         padding: 20px 0;
     }
 
-    .textVideo {
+    .textImage {
         display: flex;
         background: rgb(181, 181, 181);
         background: linear-gradient(90deg, rgb(255, 255, 255) 20%, rgb(82, 82, 82) 80%);
+        position: relative;
 
         .text {
+            flex-basis: 80%;
             padding: 30px;
 
             h3:nth-child(1) {
@@ -85,6 +65,15 @@ export default {
                 padding: 20px 0;
             }
         }
+
+        img{
+            flex-grow: 1;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 150px;
+            filter: invert(100%);
+        }
     }
 
     .articles {
@@ -95,8 +84,13 @@ export default {
             display: flex;
             overflow-y: auto;
             margin: 30px 0;
+            transition: transform .5s;
 
-            img {}
+            img {
+                max-width: 300px;
+                object-fit: cover;
+                padding: 20px;
+            }
 
             .text {
                 padding: 20px 40px;
@@ -106,12 +100,9 @@ export default {
                     font-size: 2.7rem;
                 }
 
-                h3 {
-                    color: rgb(96, 96, 96);
-                }
-
                 h4 {
                     padding: 20px 0;
+                    font-weight: 300;
                 }
 
                 h5 {
@@ -119,6 +110,10 @@ export default {
                 }
             }
 
+            &:hover{
+                transform: scale(1.05);
+                box-shadow: 10px 10px 10px rgb(163, 163, 163);
+            }
         }
 
         .card:nth-child(odd) {

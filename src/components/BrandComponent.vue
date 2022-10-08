@@ -61,9 +61,9 @@ export default {
 .container {
   margin: 50px 10%;
 
-  &>h2 {
+  &> div > h2 {
     font-size: 2.5rem;
-    margin: 30px 0 60px;
+    margin: 30px 0px;
   }
 
   .cards {
