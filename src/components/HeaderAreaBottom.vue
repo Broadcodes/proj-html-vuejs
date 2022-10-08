@@ -1,9 +1,17 @@
 <template>
   <div class="navBar">
     <ul>
-      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home')"
-        :class="{active : setNewPageActive() === 'Home'}"><a href="#"> Home </a><i class="fa-solid fa-chevron-down"></i>
+      <!-- Il getShowMenu verifica quale tendina del menu deve essere aperta, passando la stringa dell'elemento
+           selezionato mostra i dati presenti al suo interno -->
+
+      <!-- Il metodo setEmitToHome, invece, permette di mostrare l'intera pagina cliccata-->
+      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home')">
+        <a href="#" :class="{active : setNewPageActive() === 'Home'}"> Home </a><i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listHome : listHome}">
+
+          <!-- Nell'href passo l'indirizzo a cui si deve agganciare il sottoelemento cliccato dall'utente;
+               ad esempio: se si va con il cursore su Home e si clicca su review, il contenuto mostrerà
+               la sezione delle recensioni e non l'intera pagina della home -->
           <li @click="setEmitToHome('Home')"><a href="../components/BrowseByCategory.vue/#browseByCategory">Browse by
               category</a></li>
           <li @click="setEmitToHome('Home')"><a href="../components/FoodShopArea.vue/#kindsOfFood">Kinds of food</a>
@@ -13,29 +21,37 @@
               products arrival</a></li>
         </ul>
       </li>
-      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop')"
-        :class="{active : setNewPageActive() === 'Shop'}"><a href="#" @click="getValueItem('', '')">Shop</a> <i class="fa-solid fa-chevron-down"></i>
+      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop')">
+        <!-- getValueItem ha valore di string vuota per gestire il caso in cui l'utente clicca direttamente su Shop e non
+             una sottocategoria -->
+        <a href="#" @click="getValueItem('', '')" :class="{active : setNewPageActive() === 'Shop'}">Shop</a> <i
+          class="fa-solid fa-chevron-down"></i>
         <ul :class="{listShop : listShop}">
           <li @mouseenter="getShowMenu('dogs')" @mouseleave="getShowMenu('dogs')"><i class="fa-solid fa-bone"></i>Dogs<i
               class="fa-solid fa-chevron-down"></i>
             <ul :class="{categoryDogs : categoryDogs}">
-              <li v-for="item in this.getCategory()" :key="item.id" @click="getValueItem('dogs', item)">{{item}}</li>
+              <!-- Il metodo getValueItem permette mediante passaggio di "animale" e "categoria" (ad es. cats - food, dogs - transport, ecc) 
+                   la visualizzazione delle sottocategorie; ad es: se l'utente clicca su toys nell'area dedicata ai gatti,
+                   verranno mostrati solo i giochi relativi ai gatti -->
+              <li v-for="item in this.getCategory()" :key="item.id" @click="getValueItem('dogs', item)"><a
+                  href="#">{{item}}</a></li>
             </ul>
           </li>
           <li @mouseenter="getShowMenu('cats')" @mouseleave="getShowMenu('cats')"><i class="fa-solid fa-paw"></i>Cats<i
               class="fa-solid fa-chevron-down"></i>
             <ul :class="{categoryCats : categoryCats}">
-              <li v-for="item in this.getCategory()" :key="item.id" @click="getValueItem('cats', item)">{{item}}</li>
+              <li v-for="item in this.getCategory()" :key="item.id" @click="getValueItem('cats', item)"><a
+                  href="#">{{item}}</a></li>
             </ul>
           </li>
         </ul>
       </li>
-      <li @click="setEmitToHome('About')" :class="{active : setNewPageActive() === 'About'}"><a href="#">About</a></li>
-      <li @click="setEmitToHome('Blog')" :class="{active : setNewPageActive() === 'Blog'}"><a href="#">Blog</a></li>
-      <li @click="setEmitToHome('Contact')" :class="{active : setNewPageActive() === 'Contact'}"><a href="#">Contact</a>
+      <li @click="setEmitToHome('About')"><a href="#" :class="{active : setNewPageActive() === 'About'}">About</a></li>
+      <li @click="setEmitToHome('Blog')"><a href="#" :class="{active : setNewPageActive() === 'Blog'}">Blog</a></li>
+      <li @click="setEmitToHome('Contact')"><a href="#" :class="{active : setNewPageActive() === 'Contact'}">Contact</a>
       </li>
-      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')"
-        :class="{active : setNewPageActive() === 'Brand'}"><a href="#">Shop by brand</a> <span><i
+      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')">
+        <a href="#" :class="{active : setNewPageActive() === 'Brand'}">Shop by brand</a> <span><i
             class="fa-solid fa-chevron-down"></i></span>
         <ul :class="{listBrand : listBrand}">
           <li v-for="item in this.getBrand()" :key="item.id" @click="elementSelected(item)">{{item}}</li>
@@ -143,7 +159,7 @@ export default {
     elementSelected(value) {
       this.$emit('elementMenuSelected', value);
     },
-    getValueItem(animal, category){
+    getValueItem(animal, category) {
       let dataAnimalCategory = [animal, category];
       this.$emit('elementAnimalCategory', dataAnimalCategory);
     }
@@ -168,7 +184,7 @@ export default {
     display: flex;
     justify-content: center;
 
-    &>li.active {
+    &>li a.active {
       color: #3d6f42;
       font-weight: 600;
     }

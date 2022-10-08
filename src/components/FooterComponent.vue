@@ -17,6 +17,7 @@
             <div class="links">
               <h2>Shop by brand</h2>
               <ul>
+                <!-- Mostra le categorie presenti nella sezione shop [food, transport, toys, bad] -->
                 <li v-for="item in this.getCategory()" :key="item.category">
                   <p @click="setPage('Shop')">{{item}}</p>
                 </li>
@@ -49,11 +50,12 @@
       </div>
       <div class="areaFooterBottom">
         <ul>
-          <li @click="setPage('Home')">Home</li>
-          <li @click="setPage('About')">About</li>
-          <li @click="setPage('Blog')">Blog</li>
-          <li @click="setPage('Contact')">Contact</li>
-          <li @click="setPage('Shop')">Shop</li>
+          <!-- Visualizza la pagina cliccata -->
+          <li @click="setPage('Home')"><a href="#">Home</a></li>
+          <li @click="setPage('About')"><a href="#">About</a></li>
+          <li @click="setPage('Blog')"><a href="#">Blog</a></li>
+          <li @click="setPage('Contact')"><a href="#">Contact</a></li>
+          <li @click="setPage('Shop')"><a href="#">Shop</a></li>
         </ul>
         <ul>
           <li><i class="fa-brands fa-facebook-f"></i></li>
@@ -216,6 +218,15 @@ export default {
         list-style-type: none;
         padding: 20px 0;
         cursor: pointer;
+
+        a{
+          color: #fff;
+          text-decoration: none;
+
+          &:hover{
+            color: rgb(38, 116, 56);
+          }
+        }
       }
     }
 

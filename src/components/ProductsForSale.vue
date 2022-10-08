@@ -8,8 +8,11 @@
       <input type="button" value="View all products" @click="setPage">
     </div>
     <div class="cards" @click="setproductInCart()">
+      <!-- getdata restituisce i dati in base all'id selezionato -->
       <div class="card" v-for="item in this.getData(this.productID)" :key="item.id" @click="setValueAddCart(item.id)">
         <img :src="item.img" :alt="item.name">
+        <!-- restituisce un valore booleano verificando se l'id dell'elemento cliccato è uguale al valore id delle 4 card,
+             in questo modo se spunto una card le altre 3 carte restanti non modificano il loro valore -->
         <div class="hide" :class="{addToCart : !getValueShow(item.id)}">
           <i class="fa-regular fa-square"></i>
           <h3>ADD TO CART?</h3>

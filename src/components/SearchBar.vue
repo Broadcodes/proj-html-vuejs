@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <ul class="cards">
+
+      <!-- Il metodo getElement verifica se l'elemento scritto dall'utente è presente nell'array -->
       <li v-for="searchElement in this.getElement()" :key="searchElement.id">
         <div class="card">
           <img :src="searchElement.img" :alt="searchElement.name">

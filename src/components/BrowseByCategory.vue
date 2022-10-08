@@ -6,6 +6,7 @@
         consequat nulla rhoncus dictum. Viverra.</p>
     </div>
     <div class="contenitorCards">
+      <!-- getData restituisce il nome del brand in base all'id passato -->
       <div class="card" v-for="item in this.getData(this.productID)" :key="item.id">
         <img :src="item.img" :alt="item.name">
         <p>{{item.category}} ({{item.quantity}})</p>

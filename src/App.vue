@@ -1,6 +1,15 @@
 <template>
   <div id="app">
     <header>
+      <!-- Nell'Header vengono passati i seguenti valori:
+          - dataShop: ovvero i dati presenti nel file data.js necessario per popolare il menu inferiore;
+          - producsInCart: ovvero il valore di quanti prodotti vengono inseriti nel carrello;
+          - setPageActive: passa il valore della pagina che deve essere mostrata per attivare l'active
+            Ascolta invece:
+          - page: valore della pagina da mostrare;
+          - elementMenu: valore dell'elemento menu selezionato;
+          - search: valore della barra di ricerca scritta dall'utente;
+          - animalCategory: valore categoria [food, transport, bad, toys]-->
       <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected" @search="getValueSearch"
         :producsInCart="productNumbers" :setPageActive="pageSelected" @animalCategory="getAnimalCategory" />
     </header>
@@ -8,6 +17,7 @@
       <SearchBar v-if="this.textSearch !== ''" :dataShop="shop" :searchElementUser="textSearch"
         @cart="numberProductsInCart" />
       <div v-else>
+        <!-- this.pageSelect permette mediante verifica condizionale di mostrare la pagina cliccata -->
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
           @productsNumber="numberProductsInCart" @page="getPage" />
         <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart"

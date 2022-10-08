@@ -1,6 +1,10 @@
 <template>
     <div class="container">
         <h2>Buy our best products at a best price</h2>
+        <!-- setAnimalCategory[1] è una array che contiene due valori ['tipo Animale', 'Categoria'].
+             In questo caso si sta valutando se la categoria ha valore vuoto o meno. Nel caso il valore sia pari a vuoto
+             viene mostrata l'intera pagina di shop, in caso contrario viene visualizzata SOLO la parte relativa alla categoria
+             selezionata. Ad esempio: Se l'utente clicca su Cats e successivamente transport, verrà visualizzata solo quella sezione -->
         <div v-if="setAnimalCategory[1] === ''">
             <div id="Food">
                 <h2>FOOD</h2>
@@ -96,6 +100,7 @@
         <div v-else>
             <ul class="cards">
                 <li v-for="item in dataShop" :key="item.id">
+                    <!-- Condizione necessaria per valutare quale categoria mostrare in base al tipo di animale selezionato -->
                     <div class="card"
                         v-if="item.animal.toLowerCase() === setAnimalCategory[0].toLowerCase() && item.category.toLowerCase() === setAnimalCategory[1].toLowerCase()">
                         <img :src=" item.img" :alt="item.name">
@@ -128,7 +133,18 @@ export default {
         setQuantityCart() {
             this.quantity = 0;
             this.$emit('cart', ++this.quantity);
-        }
+        },
+        getCategory(typeCategory) {
+            let arr = [];
+
+            this.dataShop.forEach(element => {
+                if (element.category === typeCategory || element.animal === typeCategory) {
+                    arr.push(element);
+                }
+            });
+
+            return arr;
+        },
     }
 }
 </script>

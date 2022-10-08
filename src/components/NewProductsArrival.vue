@@ -5,6 +5,7 @@
       <p>Latest products</p>
     </div>
     <div class="contenitorCards">
+      <!-- getdata restituisce gli elementi presenti nell'array data.js in base al valore dell'id passato da productID -->
       <div class="card" v-for="item in this.getData(this.productID)" :key="item.id">
         <img :src="item.img" :alt="item.name">
         <span v-if="item.id === 5" id="sale">Sale!</span>

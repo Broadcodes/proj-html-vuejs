@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <!-- this.brandSelected ritorna una stringa con valore nome del brand selezionato dal menu a tendina -->
     <div v-if="this.brandSelected !== ''">
       <h2>Buy our best products at a best price</h2>
       <div id="Brand">
