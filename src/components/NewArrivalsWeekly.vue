@@ -16,7 +16,7 @@ export default {
   name: 'NewArrivalsWeekly',
   methods: {
     setPage() {
-      this.$emit('page', 'Shop');
+      this.$emit('page', 'About');
     }
   }
 }

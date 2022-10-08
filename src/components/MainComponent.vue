@@ -21,7 +21,7 @@
     <!-- Sezione relativa alla Categoria dei prodotti -->
     <BrowseByCategory :data="dataShop"/>
     <!-- Sezione relativa alla vendita alimentare dell'animale -->
-    <FoodShopArea @page="typePage" />
+    <FoodShopArea @productInCart="quantityProducts" />
     <!-- Sezione relativa ai nuovi arrivi settimanali -->
     <NewArrivalsWeekly @page="typePage" />
     <!-- Sezione relativa ai prodotti in vendita -->
