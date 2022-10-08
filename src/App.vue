@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <header>
-      <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected" @search="getValueSearch" :producsInCart="productNumbers" :setPageActive="pageSelected"/>
+      <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected"
+        @search="getValueSearch" :producsInCart="productNumbers" :setPageActive="pageSelected" />
     </header>
     <main>
-      <SearchBar v-if="this.textSearch !== ''" />
+      <SearchBar v-if="this.textSearch !== ''" :dataShop="shop" :searchElementUser="textSearch"
+        @cart="numberProductsInCart" />
       <div v-else>
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
           @productsNumber="numberProductsInCart" @page="getPage" />
@@ -12,7 +14,8 @@
         <AboutComponent v-else-if="this.pageSelected === 'About'" @page="getPage" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
-        <BrandComponent v-else-if="this.pageSelected === 'Brand'" :dataShop="shop" :brandSelected="elementMenuSelected" @cart="numberProductsInCart"/>
+        <BrandComponent v-else-if="this.pageSelected === 'Brand'" :dataShop="shop" :brandSelected="elementMenuSelected"
+          @cart="numberProductsInCart" />
       </div>
 
     </main>
@@ -31,16 +34,11 @@ import AboutComponent from './components/AboutComponent.vue';
 import BlogComponent from './components/BlogComponent.vue';
 import ContactComponent from './components/ContactComponent.vue';
 import BrandComponent from './components/BrandComponent.vue';
+import SearchBar from './components/SearchBar.vue';
 
 import { shop } from '@/data';
 import { feedback } from '@/data';
 import { blog } from '@/data';
-import SearchBar from './components/SearchBar.vue';
-
-
-
-
-
 
 export default {
   name: 'App',
@@ -70,8 +68,7 @@ export default {
     getPage(value) {
       this.pageSelected = value;
     },
-    elementSelected(value){
-      // console.log(value)
+    elementSelected(value) {
       this.elementMenuSelected = value
     },
     getValueSearch(value) {

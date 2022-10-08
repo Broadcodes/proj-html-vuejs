@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" @click="getValueSearch('')">
     <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart" @pageHome="getPage"/>
     <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" @elementMenuSelected="getElementMenuSelected" :pageActive="setPageActive"/>
   </div>

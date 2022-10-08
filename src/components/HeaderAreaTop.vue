@@ -5,7 +5,7 @@
         </div>
         <div class="areaSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" v-model="textSearch" @keyup.enter="getSearch(textSearch)">
+            <input type="text" id="searchInput" v-model="textSearch" @keyup="getSearch(textSearch)">
         </div>
         <p><span>Questions?</span>Call us: 1.800.123.4567</p>
         <div class="areaIconShopAccount">
