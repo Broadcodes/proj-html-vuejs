@@ -195,3 +195,46 @@ export const blog = [
         article: 'Tips & Tricks'
     }
 ]
+
+export const articles = [
+    {
+        id: '',
+        title: '',
+        article: '',
+        img: '',
+        date: '',
+        autor: ''
+    },
+    {
+        id: '',
+        title: '',
+        article: '',
+        img: '',
+        date: '',
+        autor: ''
+    },
+    {
+        id: '',
+        title: '',
+        article: '',
+        img: '',
+        date: '',
+        autor: ''
+    },
+    {
+        id: '',
+        title: '',
+        article: '',
+        img: '',
+        date: '',
+        autor: ''
+    },
+    {
+        id: '',
+        title: '',
+        article: '',
+        img: '',
+        date: '',
+        autor: ''
+    },
+]
