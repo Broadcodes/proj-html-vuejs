@@ -5,7 +5,7 @@
       <div class="text">
         <h4>FIND THE BEST ANIMAL SUPPLIES</h4>
         <h2>Popular accessories</h2>
-        <input type="button" value="View all toys accessories" @click="setPage">
+        <input type="button" value="View all toys accessories" @click="setPage(); getValueItem('dogs', 'Toys')">
       </div>
     </div>
     <div class="cats">
@@ -13,7 +13,7 @@
       <div class="text">
         <h4>FIND THE BEST FOOD</h4>
         <h2>New food arrival</h2>
-        <input type="button" value="View all food products" @click="setPage">
+        <input type="button" value="View all food products" @click="setPage(); getValueItem('cats', 'Food')">
       </div>
     </div>
   </div>
@@ -25,6 +25,10 @@ export default {
   methods: {
     setPage() {
       this.$emit('page', 'Shop');
+    },
+    getValueItem(animal, category) {
+      let dataAnimalCategory = [animal, category];
+      this.$emit('elementAnimalCategory', dataAnimalCategory);
     }
   }
 }

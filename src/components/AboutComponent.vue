@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    
-    <div class="jumbo">
+
+    <div class="jumbo" id="about">
       <img src="@/assets/img/dogs-cat-together-with-pink-background_539007-7.jpg" alt="Avada Avenue Avadaville">
       <h2>Avada Avenue Avadaville</h2>
       <h2>We ... for animal welfare</h2>
@@ -41,6 +41,12 @@ export default {
     setPage() {
       this.$emit('page', 'Contact');
     }
+  },
+  created() {
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
   }
 }
 </script>
@@ -49,25 +55,25 @@ export default {
 .container {
   text-align: center;
 
-  h2{
+  h2 {
     font-size: 3rem;
     margin: 30px;
   }
 
-  .jumbo{
+  .jumbo {
     width: 100%;
     height: 550px;
     position: relative;
     overflow: hidden;
 
-    h2{
+    h2 {
       font-size: 3.5rem;
       color: #fff;
       position: absolute;
       transition: all .5s;
     }
 
-    h2:nth-child(2){
+    h2:nth-child(2) {
       top: 35%;
       right: 10%;
       transform: translateY(-50%);
@@ -75,11 +81,18 @@ export default {
     }
 
     @keyframes moveDxToSx {
-      from {right: -50%; color: rgba(255, 255, 255, 0);}
-      to{right: 10%; color: #fff;}
+      from {
+        right: -50%;
+        color: rgba(255, 255, 255, 0);
+      }
+
+      to {
+        right: 10%;
+        color: #fff;
+      }
     }
 
-    h2:nth-child(3){
+    h2:nth-child(3) {
       top: 55%;
       left: 10%;
       transform: translateY(-50%);
@@ -87,11 +100,18 @@ export default {
     }
 
     @keyframes moveSxToDx {
-      from {left: -50%; color: rgba(255, 255, 255, 0);}
-      to{left: 10%; color: #fff;}
+      from {
+        left: -50%;
+        color: rgba(255, 255, 255, 0);
+      }
+
+      to {
+        left: 10%;
+        color: #fff;
+      }
     }
 
-    img{
+    img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -105,28 +125,28 @@ export default {
     align-items: center;
     margin: 50px 10%;
 
-    p{
+    p {
       padding: 20px;
       margin: 0 100px;
       transition: all 1s;
     }
 
-    p:nth-child(1){
-      &:hover{
+    p:nth-child(1) {
+      &:hover {
         transform: scale(1.05);
         box-shadow: -20px 20px 20px rgb(143, 143, 143);
       }
     }
 
     p:nth-child(2) {
-      &:hover{
+      &:hover {
         transform: scale(1.05);
         box-shadow: 20px 20px 20px rgb(143, 143, 143);
       }
     }
   }
 
-  input{
+  input {
     padding: 20px 50px;
     border-radius: 50px;
     font-size: 1rem;
@@ -135,7 +155,7 @@ export default {
     background-color: #3d6f42;
     margin-bottom: 40px;
 
-    &:hover{
+    &:hover {
       background-color: #528f58;
       cursor: pointer;
     }

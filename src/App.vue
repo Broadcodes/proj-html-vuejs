@@ -19,7 +19,7 @@
       <div v-else>
         <!-- this.pageSelect permette mediante verifica condizionale di mostrare la pagina cliccata -->
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
-          @productsNumber="numberProductsInCart" @page="getPage" />
+          @productsNumber="numberProductsInCart" @page="getPage" @animalCategory="getAnimalCategory"/>
         <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart"
           :setAnimalCategory="animalCategory" />
         <AboutComponent v-else-if="this.pageSelected === 'About'" @page="getPage" />
@@ -112,7 +112,6 @@ body {
 
 #app {
   cursor: url('@/assets/img/cursor.png'), auto;
-  scroll-behavior: smooth;
 
   main {
     padding-top: 112px;

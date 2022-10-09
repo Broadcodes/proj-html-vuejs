@@ -145,6 +145,12 @@ export default {
 
             return arr;
         },
+    },
+    created() {
+        window.scroll({
+            top: 0,
+            left: 0,
+        });
     }
 }
 </script>

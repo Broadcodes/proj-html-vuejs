@@ -5,6 +5,7 @@
       <div class="text">
         <h4>FIND THE BEST ANIMAL SUPPLIES</h4>
         <h2>New arrivals weekly</h2>
+        <!-- <a href="/components/AboutComponent.vue"><input type="button" value="Learn more about us"></a> -->
         <input type="button" value="Learn more about us" @click="setPage">
       </div>
     </div>

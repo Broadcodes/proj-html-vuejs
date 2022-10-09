@@ -19,21 +19,21 @@
       </div>
     </div>
     <!-- Sezione relativa alla Categoria dei prodotti -->
-    <BrowseByCategory :data="dataShop"/>
+    <BrowseByCategory :data="dataShop" />
     <!-- Sezione relativa alla vendita alimentare dell'animale -->
     <FoodShopArea @productInCart="quantityProducts" />
     <!-- Sezione relativa ai nuovi arrivi settimanali -->
     <NewArrivalsWeekly @page="typePage" />
     <!-- Sezione relativa ai prodotti in vendita -->
-    <ProductsForSale :data="dataShop" @productInCart="quantityProducts" @page="typePage" />
+    <ProductsForSale :data="dataShop" @productInCart="quantityProducts" @page="typePage" @elementAnimalCategory="getElementAnimalCategory" />
     <!-- Sezione relativa alle testimonianze -->
-    <FeedbackUsers :feedback="dataFeedback"/>
+    <FeedbackUsers :feedback="dataFeedback" />
     <!-- Sezione relativa alle newsletter -->
     <NewsLetterArea />
     <!-- Sezione relativa agli articoli -->
-    <ArticlesBlogArea :blog="dataBlog" @page="typePage"/>
+    <ArticlesBlogArea :blog="dataBlog" @page="typePage" />
     <!-- Sezione relativa agli accessori per cani e cibo per gatti -->
-    <AreaDogsAndCats @page="typePage" />
+    <AreaDogsAndCats @page="typePage" @elementAnimalCategory="getElementAnimalCategory" />
     <!-- Sezione relativa alla barra verde in cui sono presenti le icone sulla spedizione, store e i pagamenti -->
     <div class="bannerPay">
       <div class="cards">
@@ -73,7 +73,7 @@ import AreaDogsAndCats from './AreaDogsAndCats.vue';
 import NewProductsArrival from './NewProductsArrival.vue';
 export default {
   name: "MainComponent",
-  props:{
+  props: {
     dataShop: Array,
     dataFeedback: Array,
     dataBlog: Array
@@ -90,12 +90,15 @@ export default {
     AreaDogsAndCats,
     NewProductsArrival
   },
-  methods:{
-    quantityProducts(value){
+  methods: {
+    quantityProducts(value) {
       this.$emit('productsNumber', value);
     },
-    typePage(value){
+    typePage(value) {
       this.$emit('page', value);
+    },
+    getElementAnimalCategory(value){
+      this.$emit('animalCategory', value);
     }
   }
 }
@@ -171,8 +174,8 @@ export default {
       color: rgb(189, 189, 189);
       font-size: 0.9rem;
       cursor: pointer;
-      
-      &:hover{
+
+      &:hover {
         text-decoration: underline;
       }
     }
@@ -200,7 +203,7 @@ export default {
         font-size: 2.5rem;
       }
 
-      h4{
+      h4 {
         font-size: 0.7rem;
         padding: 20px 0;
         color: rgb(203, 203, 203);

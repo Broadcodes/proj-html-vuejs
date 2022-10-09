@@ -33,6 +33,12 @@ export default {
         return{
             articles
         }
+    },
+    created() {
+        window.scroll({
+            top: 0,
+            left: 0,
+        });
     }
 }
 </script>

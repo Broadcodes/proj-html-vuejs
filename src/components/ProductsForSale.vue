@@ -5,7 +5,7 @@
         <h4>All-time best sellers</h4>
         <h2>Items everyone loves</h2>
       </div>
-      <input type="button" value="View all products" @click="setPage">
+      <input type="button" value="View all products" @click="setPage(); getValueItem('', '')">
     </div>
     <div class="cards" @click="setproductInCart()">
       <!-- getdata restituisce i dati in base all'id selezionato -->
@@ -67,6 +67,10 @@ export default {
     },
     setPage() {
       this.$emit('page', 'Shop');
+    },
+    getValueItem(animal, category) {
+      let dataAnimalCategory = [animal, category];
+      this.$emit('elementAnimalCategory', dataAnimalCategory);
     }
   }
 }
