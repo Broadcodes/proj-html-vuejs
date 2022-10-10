@@ -64,7 +64,17 @@ export default {
             let price = 0
 
             this.saveProducts.forEach(element => {
-                price += parseFloat(element.price.substring(1));
+
+                if(element.price.length > 10){
+
+                    let firstPrice = parseFloat(element.price.substring(1, 6));
+                    let secondPrice = parseFloat(element.price.substring(10));
+                    let average = (firstPrice + secondPrice) / 2;
+
+                    price += average;
+                } else {
+                     price += parseFloat(element.price.substring(1));
+                }
             });
 
             return price.toFixed(2);
