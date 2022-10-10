@@ -12,7 +12,7 @@
               <h3><span>Animal: </span> <span>{{brand.animal}}</span></h3>
               <h3><span>Quantity: </span> <span>{{brand.quantity}}</span></h3>
               <h3><span>Price: </span> <span>{{brand.price}}</span></h3>
-              <input type="button" value="Add To Cart" @click="setQuantityCart()">
+              <input type="button" value="Add To Cart" @click="setQuantityCart(brand.id)">
             </div>
           </li>
         </ul>
@@ -48,7 +48,14 @@ export default {
 
       return arr;
     },
-    setQuantityCart() {
+    setQuantityCart(id) {
+
+      this.shop.forEach(item => {
+                if (item.id === id) {
+                    this.saveProducts.push(item);
+                }
+            });
+
       this.quantity = 0;
       this.$emit('cart', ++this.quantity);
     }
