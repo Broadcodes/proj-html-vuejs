@@ -39,13 +39,13 @@
 
         <form method="post">
           <label for="name">Name</label>
-          <input type="text" name="name" id="name">
+          <input type="text" name="name" id="name" required>
           <label for="surname">Surname</label>
-          <input type="text" name="surname" id="surname">
+          <input type="text" name="surname" id="surname" required>
           <label for="surname">Email</label>
-          <input type="email" name="email" id="email">
+          <input type="email" name="email" id="email" required>
           <label for="message">Message</label>
-          <textarea name="message" id="message" cols="100" rows="10"></textarea>
+          <textarea name="message" id="message" cols="100" rows="10" required></textarea>
           <input type="submit" value="Submit">
         </form>
       </div>
