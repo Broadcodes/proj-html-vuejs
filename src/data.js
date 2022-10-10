@@ -238,3 +238,5 @@ export const articles = [
         autor: 'Mary Harris'
     },
 ]
+
+export const saveProducts = []

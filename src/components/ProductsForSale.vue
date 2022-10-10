@@ -29,13 +29,18 @@
 </template>
 
 <script>
+import { shop } from '@/data';
+import { saveProducts } from '@/data';
+
 export default {
   name: 'ProductsForSale',
   data() {
     return {
       productID: [11, 12, 13, 14],
       isSelected: -1,
-      productInCart: 0
+      productInCart: 0,
+      shop,
+      saveProducts
     }
   },
   props: {
@@ -59,6 +64,13 @@ export default {
       return value === this.isSelected;
     },
     setValueAddCart(value) {
+      
+      this.shop.forEach(item => {
+        if(item.id === value){
+          this.saveProducts.push(item);
+        }
+      });
+
       this.isSelected = value
     },
     setproductInCart() {

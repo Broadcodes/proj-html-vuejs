@@ -16,7 +16,7 @@
                             <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
                             <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
                             <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                            <input type="button" value="Add To Cart" @click="setQuantityCart(food.id)">
                         </div>
                     </li>
                 </ul>
@@ -24,14 +24,14 @@
             <div id="Toys">
                 <h2>TOYS</h2>
                 <ul class="cards">
-                    <li v-for="food in this.getCategory('Toys')" :key="food.id">
+                    <li v-for="toys in this.getCategory('Toys')" :key="toys.id">
                         <div class="card">
-                            <img :src="food.img" :alt="food.name">
-                            <h2>{{food.name}}</h2>
-                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                            <img :src="toys.img" :alt="toys.name">
+                            <h2>{{toys.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{toys.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{toys.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{toys.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart(toys.id)">
                         </div>
                     </li>
                 </ul>
@@ -39,14 +39,14 @@
             <div id="Transport">
                 <h2>TRANSPORT</h2>
                 <ul class="cards">
-                    <li v-for="food in this.getCategory('Transport')" :key="food.id">
+                    <li v-for="transport in this.getCategory('Transport')" :key="transport.id">
                         <div class="card">
-                            <img :src="food.img" :alt="food.name">
-                            <h2>{{food.name}}</h2>
-                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                            <img :src="transport.img" :alt="transport.name">
+                            <h2>{{transport.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{transport.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{transport.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{transport.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart(transport.id)">
                         </div>
                     </li>
                 </ul>
@@ -54,14 +54,14 @@
             <div id="Bad">
                 <h2>BAD</h2>
                 <ul class="cards">
-                    <li v-for="food in this.getCategory('Bad')" :key="food.id">
+                    <li v-for="bad in this.getCategory('Bad')" :key="bad.id">
                         <div class="card">
-                            <img :src="food.img" :alt="food.name">
-                            <h2>{{food.name}}</h2>
-                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                            <img :src="bad.img" :alt="bad.name">
+                            <h2>{{bad.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{bad.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{bad.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{bad.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart(bad.id)">
                         </div>
                     </li>
                 </ul>
@@ -69,14 +69,14 @@
             <div id="Dogs">
                 <h2>DOGS</h2>
                 <ul class="cards">
-                    <li v-for="food in this.getCategory('Dogs')" :key="food.id">
+                    <li v-for="dogs in this.getCategory('Dogs')" :key="dogs.id">
                         <div class="card">
-                            <img :src="food.img" :alt="food.name">
-                            <h2>{{food.name}}</h2>
-                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                            <img :src="dogs.img" :alt="dogs.name">
+                            <h2>{{dogs.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{dogs.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{dogs.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{dogs.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart(dogs.id)">
                         </div>
                     </li>
                 </ul>
@@ -84,14 +84,14 @@
             <div id="Cats">
                 <h2>CATS</h2>
                 <ul class="cards">
-                    <li v-for="food in this.getCategory('Cats')" :key="food.id">
+                    <li v-for="cats in this.getCategory('Cats')" :key="cats.id">
                         <div class="card">
-                            <img :src="food.img" :alt="food.name">
-                            <h2>{{food.name}}</h2>
-                            <h3><span>Animal: </span> <span>{{food.animal}}</span></h3>
-                            <h3><span>Quantity: </span> <span>{{food.quantity}}</span></h3>
-                            <h3><span>Price: </span> <span>{{food.price}}</span></h3>
-                            <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                            <img :src="cats.img" :alt="cats.name">
+                            <h2>{{cats.name}}</h2>
+                            <h3><span>Animal: </span> <span>{{cats.animal}}</span></h3>
+                            <h3><span>Quantity: </span> <span>{{cats.quantity}}</span></h3>
+                            <h3><span>Price: </span> <span>{{cats.price}}</span></h3>
+                            <input type="button" value="Add To Cart" @click="setQuantityCart(cats.id)">
                         </div>
                     </li>
                 </ul>
@@ -108,7 +108,7 @@
                         <h3><span>Animal: </span> <span>{{item.animal}}</span></h3>
                         <h3><span>Quantity: </span> <span>{{item.quantity}}</span></h3>
                         <h3><span>Price: </span> <span>{{item.price}}</span></h3>
-                        <input type="button" value="Add To Cart" @click="setQuantityCart()">
+                        <input type="button" value="Add To Cart" @click="setQuantityCart(item.id)">
                     </div>
                 </li>
             </ul>
@@ -117,12 +117,17 @@
 </template>
 
 <script>
+import { shop } from '@/data';
+import { saveProducts } from '@/data';
+
 export default {
     name: 'ShopComponent',
     data() {
         return {
             quantity: 0,
             animalCategory: [],
+            shop,
+            saveProducts
         }
     },
     props: {
@@ -131,7 +136,14 @@ export default {
         setPageShop: Boolean
     },
     methods: {
-        setQuantityCart() {
+        setQuantityCart(id) {
+
+            this.shop.forEach(item => {
+                if (item.id === id) {
+                    this.saveProducts.push(item);
+                }
+            });
+
             this.quantity = 0;
             this.$emit('cart', ++this.quantity);
         },
@@ -146,9 +158,9 @@ export default {
 
             return arr;
         },
-        setValuePage(){
-            if(this.setAnimalCategory[0] === '' && this.setAnimalCategory[1] === '' ||
-            this.setAnimalCategory[0] === undefined && this.setAnimalCategory[1] === undefined){
+        setValuePage() {
+            if (this.setAnimalCategory[0] === '' && this.setAnimalCategory[1] === '' ||
+                this.setAnimalCategory[0] === undefined && this.setAnimalCategory[1] === undefined) {
                 console.log(this.setPageShop)
                 return this.setPageShop;
             }

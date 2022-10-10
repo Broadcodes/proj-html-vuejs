@@ -11,11 +11,12 @@
           - search: valore della barra di ricerca scritta dall'utente;
           - animalCategory: valore categoria [food, transport, bad, toys]-->
       <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected" @search="getValueSearch"
-        :producsInCart="productNumbers" :setPageActive="pageSelected" @animalCategory="getAnimalCategory" />
+        :producsInCart="productNumbers" :setPageActive="pageSelected" @animalCategory="getAnimalCategory" @showCart="getValueShowCart"/>
     </header>
     <main>
       <SearchBar v-if="this.textSearch !== ''" :dataShop="shop" :searchElementUser="textSearch"
         @cart="numberProductsInCart" />
+      <CartComponent v-else-if="valueShowCart" :elementCart="productArticleInCart"/>
       <div v-else>
         <!-- this.pageSelect permette mediante verifica condizionale di mostrare la pagina cliccata -->
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
@@ -46,6 +47,7 @@ import BlogComponent from './components/BlogComponent.vue';
 import ContactComponent from './components/ContactComponent.vue';
 import BrandComponent from './components/BrandComponent.vue';
 import SearchBar from './components/SearchBar.vue';
+import CartComponent from './components/CartComponent.vue';
 
 import { shop } from '@/data';
 import { feedback } from '@/data';
@@ -64,7 +66,8 @@ export default {
       productNumbers: 0,
       animalCategory: '',
       valuePageShop: '',
-      
+      valueShowCart: '',
+      productArticleInCart: []
     }
   },
   components: {
@@ -76,8 +79,9 @@ export default {
     BlogComponent,
     ContactComponent,
     BrandComponent,
-    SearchBar
-  },
+    SearchBar,
+    CartComponent
+},
   methods: {
     getPage(value) {
       this.pageSelected = value;
@@ -96,9 +100,13 @@ export default {
     },
     setValuePageShop(value){
       this.valuePageShop = value;
+    },
+    getValueShowCart(value){
+      this.valueShowCart = value;
     }
   },
   created() {
+    // All'inizio, quando viene caricata la pagina sul browser, la prima pagina che viene mostrata è la home
     this.pageSelected = 'Home';
   }
 }

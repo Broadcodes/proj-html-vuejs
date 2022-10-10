@@ -1,6 +1,6 @@
 <template>
     <div class="container" id="topHeader">
-        <div class="logo">
+        <div class="logo" @click="showCart(false)">
             <img src="@/assets/images/dark-pet-logo.png" alt="logo" @click="$emit('pageHome', 'Home')">
         </div>
         <div class="areaSearch">
@@ -9,7 +9,7 @@
         </div>
         <p><span>Questions?</span>Call us: 1.800.123.4567</p>
         <div class="areaIconShopAccount">
-            <i class="fa-solid fa-bag-shopping">
+            <i class="fa-solid fa-bag-shopping" @click="showCart">
                 <span v-if="this.numProducts !== 0">
                     {{this.numProducts}}
                 </span>
@@ -21,15 +21,28 @@
 
 <script>
 export default {
-    name: 'HeaderAreaTop',
+    name: "HeaderAreaTop",
     data() {
         return {
-            textSearch: '',
-        }
+            textSearch: "",
+            valueShowCart: false
+        };
     },
     methods: {
         getSearch(value) {
-            this.$emit('searchInput', value);
+            this.$emit("searchInput", value);
+        },
+        showCart(value) {
+            if (this.valueShowCart) {
+                this.valueShowCart = false;
+                value = false;
+            }
+            else {
+                this.valueShowCart = true;
+                value = true;
+            }
+            
+            this.$emit("showCart", value);
         }
     },
     props: {

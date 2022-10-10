@@ -1,8 +1,8 @@
 <template>
   <div class="header" @click="getValueSearch('')">
-    <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart" @pageHome="getPage" />
-    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" @elementMenuSelected="getElementMenuSelected"
-      @elementAnimalCategory="getElementAnimalCategory" :pageActive="setPageActive" />
+    <HeaderAreaTop @searchInput="getValueSearch" :numProducts="producsInCart" @pageHome="getPage" @showCart="getValueShowCart"/>
+    <HeaderAreaBottom :menu="dataShop" @pageSelected="getPage" @elementMenuSelected="getElementMenuSelected" @showCart="getValueShowCart"
+      @elementAnimalCategory="getElementAnimalCategory" :pageActive="setPageActive"/>
   </div>
 </template>
 
@@ -37,6 +37,9 @@ export default {
     },
     getElementAnimalCategory(value){
       this.$emit('animalCategory', value);
+    },
+    getValueShowCart(value){
+      this.$emit('showCart', value);
     }
   }
 }

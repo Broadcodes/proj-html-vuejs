@@ -5,7 +5,7 @@
            selezionato mostra i dati presenti al suo interno -->
 
       <!-- Il metodo setEmitToHome, invece, permette di mostrare l'intera pagina cliccata-->
-      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home')">
+      <li @mouseenter="getShowMenu('home')" @mouseleave="getShowMenu('home')" @click="setEmitToHome('Home'); $emit('showCart', false)">
         <a href="#" :class="{active : setNewPageActive() === 'Home'}"> Home </a><i class="fa-solid fa-chevron-down"></i>
         <ul :class="{listHome : listHome}">
 
@@ -21,7 +21,7 @@
               products arrival</a></li>
         </ul>
       </li>
-      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop')">
+      <li @mouseenter="getShowMenu('shop')" @mouseleave="getShowMenu('shop')" @click="setEmitToHome('Shop'); $emit('showCart', false)">
         <!-- getValueItem ha valore di string vuota per gestire il caso in cui l'utente clicca direttamente su Shop e non
              una sottocategoria -->
         <a href="#" @click="getValueItem('', '')" :class="{active : setNewPageActive() === 'Shop'}">Shop</a> <i
@@ -46,11 +46,11 @@
           </li>
         </ul>
       </li>
-      <li @click="setEmitToHome('About')"><a href="#" :class="{active : setNewPageActive() === 'About'}">About</a></li>
-      <li @click="setEmitToHome('Blog')"><a href="#" :class="{active : setNewPageActive() === 'Blog'}">Blog</a></li>
-      <li @click="setEmitToHome('Contact')"><a href="#" :class="{active : setNewPageActive() === 'Contact'}">Contact</a>
+      <li @click="setEmitToHome('About'); $emit('showCart', false)"><a href="#" :class="{active : setNewPageActive() === 'About'}">About</a></li>
+      <li @click="setEmitToHome('Blog'); $emit('showCart', false)"><a href="#" :class="{active : setNewPageActive() === 'Blog'}">Blog</a></li>
+      <li @click="setEmitToHome('Contact'); $emit('showCart', false)"><a href="#" :class="{active : setNewPageActive() === 'Contact'}">Contact</a>
       </li>
-      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand')">
+      <li @mouseenter="getShowMenu('brand')" @mouseleave="getShowMenu('brand')" @click="setEmitToHome('Brand'); $emit('showCart', false)">
         <a href="#" :class="{active : setNewPageActive() === 'Brand'}">Shop by brand</a> <span><i
             class="fa-solid fa-chevron-down"></i></span>
         <ul :class="{listBrand : listBrand}">
