@@ -55,7 +55,13 @@
 
 <script>
 export default {
-  name: 'ContactComponent'
+  name: 'ContactComponent',
+  created() {
+    window.scroll({
+      top: 0,
+      left: 0,
+    });
+  }
 }
 </script>
 
