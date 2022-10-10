@@ -239,7 +239,7 @@ export default {
             margin: 30px 10px;
 
             li {
-                padding-left: 5px;
+                padding: 5px 3px;
                 display: flex;
                 justify-content: space-between;
 
