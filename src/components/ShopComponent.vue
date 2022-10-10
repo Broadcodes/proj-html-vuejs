@@ -5,7 +5,7 @@
              In questo caso si sta valutando se la categoria ha valore vuoto o meno. Nel caso il valore sia pari a vuoto
              viene mostrata l'intera pagina di shop, in caso contrario viene visualizzata SOLO la parte relativa alla categoria
              selezionata. Ad esempio: Se l'utente clicca su Cats e successivamente transport, verrà visualizzata solo quella sezione -->
-        <div v-if="setAnimalCategory[1] === ''">
+        <div v-if="setAnimalCategory[1] === '' || this.setValuePage()">
             <div id="Food">
                 <h2>FOOD</h2>
                 <ul class="cards">
@@ -122,12 +122,13 @@ export default {
     data() {
         return {
             quantity: 0,
-            animalCategory: []
+            animalCategory: [],
         }
     },
     props: {
         dataShop: Array,
-        setAnimalCategory: Array
+        setAnimalCategory: Array,
+        setPageShop: Boolean
     },
     methods: {
         setQuantityCart() {
@@ -145,6 +146,15 @@ export default {
 
             return arr;
         },
+        setValuePage(){
+            if(this.setAnimalCategory[0] === '' && this.setAnimalCategory[1] === '' ||
+            this.setAnimalCategory[0] === undefined && this.setAnimalCategory[1] === undefined){
+                console.log(this.setPageShop)
+                return this.setPageShop;
+            }
+
+            return false;
+        }
     },
     created() {
         window.scroll({

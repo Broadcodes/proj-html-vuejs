@@ -25,7 +25,7 @@
     <!-- Sezione relativa ai nuovi arrivi settimanali -->
     <NewArrivalsWeekly @page="typePage" />
     <!-- Sezione relativa ai prodotti in vendita -->
-    <ProductsForSale :data="dataShop" @productInCart="quantityProducts" @page="typePage" @elementAnimalCategory="getElementAnimalCategory" />
+    <ProductsForSale :data="dataShop" @productInCart="quantityProducts" @page="typePage" @valuePageShop="setValuePageShop" />
     <!-- Sezione relativa alle testimonianze -->
     <FeedbackUsers :feedback="dataFeedback" />
     <!-- Sezione relativa alle newsletter -->
@@ -99,6 +99,9 @@ export default {
     },
     getElementAnimalCategory(value){
       this.$emit('animalCategory', value);
+    },
+    setValuePageShop(value){
+      this.$emit('valuePageShop', value);
     }
   }
 }

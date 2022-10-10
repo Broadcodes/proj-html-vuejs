@@ -19,9 +19,9 @@
       <div v-else>
         <!-- this.pageSelect permette mediante verifica condizionale di mostrare la pagina cliccata -->
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
-          @productsNumber="numberProductsInCart" @page="getPage" @animalCategory="getAnimalCategory"/>
+          @productsNumber="numberProductsInCart" @page="getPage" @animalCategory="getAnimalCategory" @valuePageShop="setValuePageShop"/>
         <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart"
-          :setAnimalCategory="animalCategory" />
+          :setAnimalCategory="animalCategory" :setPageShop="valuePageShop"/>
         <AboutComponent v-else-if="this.pageSelected === 'About'" @page="getPage" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
@@ -62,7 +62,9 @@ export default {
       feedback,
       blog,
       productNumbers: 0,
-      animalCategory: ''
+      animalCategory: '',
+      valuePageShop: '',
+      
     }
   },
   components: {
@@ -91,6 +93,9 @@ export default {
     },
     getAnimalCategory(value) {
       this.animalCategory = value;
+    },
+    setValuePageShop(value){
+      this.valuePageShop = value;
     }
   },
   created() {
