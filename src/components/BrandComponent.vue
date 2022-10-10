@@ -25,11 +25,16 @@
 </template>
 
 <script>
+import { shop } from '@/data';
+import { saveProducts } from '@/data';
+
 export default {
   name: 'BrandComponent',
   data() {
     return {
-      quantity: 0
+      quantity: 0,
+      shop,
+      saveProducts
     }
   },
   props: {
@@ -51,10 +56,10 @@ export default {
     setQuantityCart(id) {
 
       this.shop.forEach(item => {
-                if (item.id === id) {
-                    this.saveProducts.push(item);
-                }
-            });
+        if (item.id === id) {
+          this.saveProducts.push(item);
+        }
+      });
 
       this.quantity = 0;
       this.$emit('cart', ++this.quantity);
@@ -68,7 +73,7 @@ export default {
 .container {
   margin: 50px 10%;
 
-  &> div > h2 {
+  &>div>h2 {
     font-size: 2.5rem;
     margin: 30px 0px;
   }

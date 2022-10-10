@@ -11,18 +11,20 @@
           - search: valore della barra di ricerca scritta dall'utente;
           - animalCategory: valore categoria [food, transport, bad, toys]-->
       <HeaderComponent :dataShop="shop" @page="getPage" @elementMenu="elementSelected" @search="getValueSearch"
-        :producsInCart="productNumbers" :setPageActive="pageSelected" @animalCategory="getAnimalCategory" @showCart="getValueShowCart"/>
+        :producsInCart="productNumbers" :setPageActive="pageSelected" @animalCategory="getAnimalCategory"
+        @showCart="getValueShowCart" />
     </header>
     <main>
       <SearchBar v-if="this.textSearch !== ''" :dataShop="shop" :searchElementUser="textSearch"
         @cart="numberProductsInCart" />
-      <CartComponent v-else-if="valueShowCart" :elementCart="productArticleInCart"/>
+      <CartComponent v-else-if="valueShowCart" :elementCart="productArticleInCart" />
       <div v-else>
         <!-- this.pageSelect permette mediante verifica condizionale di mostrare la pagina cliccata -->
         <MainComponent v-if="this.pageSelected === 'Home'" :dataShop="shop" :dataFeedback="feedback" :dataBlog="blog"
-          @productsNumber="numberProductsInCart" @page="getPage" @animalCategory="getAnimalCategory" @valuePageShop="setValuePageShop"/>
+          @productsNumber="numberProductsInCart" @page="getPage" @animalCategory="getAnimalCategory"
+          @valuePageShop="setValuePageShop" />
         <ShopComponent v-else-if="this.pageSelected === 'Shop'" :dataShop="shop" @cart="numberProductsInCart"
-          :setAnimalCategory="animalCategory" :setPageShop="valuePageShop"/>
+          :setAnimalCategory="animalCategory" :setPageShop="valuePageShop" />
         <AboutComponent v-else-if="this.pageSelected === 'About'" @page="getPage" />
         <BlogComponent v-else-if="this.pageSelected === 'Blog'" />
         <ContactComponent v-else-if="this.pageSelected === 'Contact'" />
@@ -81,7 +83,7 @@ export default {
     BrandComponent,
     SearchBar,
     CartComponent
-},
+  },
   methods: {
     getPage(value) {
       this.pageSelected = value;
@@ -98,10 +100,10 @@ export default {
     getAnimalCategory(value) {
       this.animalCategory = value;
     },
-    setValuePageShop(value){
+    setValuePageShop(value) {
       this.valuePageShop = value;
     },
-    getValueShowCart(value){
+    getValueShowCart(value) {
       this.valueShowCart = value;
     }
   },
