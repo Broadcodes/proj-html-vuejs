@@ -1,6 +1,6 @@
 <template>
     <div class="container" id="topHeader">
-        <div class="logo" @click="showCart(false)">
+        <div class="logo">
             <img src="@/assets/images/dark-pet-logo.png" alt="logo" @click="$emit('pageHome', 'Home')">
         </div>
         <div class="areaSearch">
